@@ -1,0 +1,10 @@
+{
+ "sd7037|100000|4|SA|medium|0.06": "cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430",
+ "sd7037|100000|4|SST_LM|medium|0.06": "cfd-sd7037-re100k-a4-SST_LM-medium-20261118-181548-0402430",
+ "sd7037|100000|2|SA|medium|0.06": "cfd-sd7037-re100k-a2-SA-medium-20261118-181549-0402430",
+ "sd7037|100000|2|SST_LM|medium|0.06": "cfd-sd7037-re100k-a2-SST_LM-medium-20261118-181550-0402430",
+ "sd7037|60000|4|SA|medium|0.06": "cfd-sd7037-re60k-a4-SA-medium-20261118-181551-0402430",
+ "sd7037|60000|4|SST_LM|medium|0.06": "cfd-sd7037-re60k-a4-SST_LM-medium-20261118-181553-0402430",
+ "sd7037|60000|2|SA|medium|0.06": "cfd-sd7037-re60k-a2-SA-medium-20261118-181554-0402430",
+ "sd7037|60000|2|SST_LM|medium|0.06": "cfd-sd7037-re60k-a2-SST_LM-medium-20261118-181555-0402430"
+}

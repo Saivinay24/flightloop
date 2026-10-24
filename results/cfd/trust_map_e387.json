@@ -1,0 +1,195 @@
+{
+ "labels": [
+  "validated",
+  "out-of-bar",
+  "unsteady",
+  "near-stall",
+  "incomplete",
+  "failed"
+ ],
+ "bars": "validated = converged and |Cl err| < 5% and |Cd err| < 20% (V06 bars) vs TM-4062",
+ "cells": [
+  {
+   "run_id": "cfd-e387-re200k-a0-SA-medium-20261118-111327-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 0,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": 2.9887244159544166,
+   "cd_err_pct": 30.795855829383893
+  },
+  {
+   "run_id": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 0,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "unsteady",
+   "cl_err_pct": 5.3180164217378945,
+   "cd_err_pct": 3.337409539952597
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-coarse-20261118-111333-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "coarse",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": -0.625141358088456,
+   "cd_err_pct": 27.07279592126805
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-fine-20261118-111334-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "fine",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": 0.12219704273784303,
+   "cd_err_pct": 24.125574583271323
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-medium-20261118-111325-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": -0.127076544696512,
+   "cd_err_pct": 25.107412058342025
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA_BC-medium-20261118-214549-85e1418",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA_BC",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "incomplete"
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST-medium-20261118-214548-85e1418",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": -1.778267547077132,
+   "cd_err_pct": 26.017153286203303
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-coarse-20261118-111331-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "coarse",
+   "tu_pct": 0.06,
+   "status": "unsteady",
+   "cl_err_pct": 0.03961000475086702,
+   "cd_err_pct": 8.02438640510344
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-fine-20261118-111332-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "fine",
+   "tu_pct": 0.06,
+   "status": "validated",
+   "cl_err_pct": 0.738131442480876,
+   "cd_err_pct": 5.491618741628226
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "unsteady",
+   "cl_err_pct": 0.3405770598727841,
+   "cd_err_pct": 4.421327034733229
+  },
+  {
+   "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 8,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "out-of-bar",
+   "cl_err_pct": -0.9722485692079414,
+   "cd_err_pct": 37.79222021505375
+  },
+  {
+   "run_id": "cfd-e387-re200k-a8-SST_LM-medium-20261118-111328-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 8,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "unsteady",
+   "cl_err_pct": -1.823866903794219,
+   "cd_err_pct": 31.989776218838692
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a2-SA-medium-20261118-181549-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 2,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "converged (scored in DISAGREEMENT.md)"
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a2-SST_LM-medium-20261118-181550-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 2,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "incomplete"
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "converged (scored in DISAGREEMENT.md)"
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a4-SST_LM-medium-20261118-181548-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "status": "unsteady"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+# FlightLoop config: all code reads this; nothing below is hardcoded in modules.
+project_root: ~/Desktop/flightloop
+run_id_format: "{module}-{case}-{YYYYmmdd-HHMMSS}-{shortsha}"
+stratoglide_root: ~/Desktop/stratoglide
+validation:
+  e387:
+    re: [100000, 200000]
+    alpha_deg: [-2, 0, 2, 4, 6, 8, 10, 12]
+    cutline_alpha_deg: [0, 4, 8]
+    alpha_gci_deg: 4
+    models: [SA, SST, SA_BC, SST_LM]
+    headline_tu_percent: 0.06   # TM-4062 measured LTPT level at Re 100k-200k, Pt 15 psi (report p. 6)
+    tu_percent_sweep: [0.05, 0.1, 0.2]
+  strato:
+    airfoil: sd7037
+    re: [60000, 100000]
+mesh:
+  first_cell_height_c: 1.0e-5   # medium level; plan said 2.0e-5, lowered after the P0 benchmark measured y+ 0.82 at the LE (HONEST_LOG)
+  growth_normal: 1.10
+  farfield_radius_c: 100
+  wake_length_c: 20
+  levels:
+    coarse: {Ns: 200, Nw: 50,  Nn: 80}
+    medium: {Ns: 283, Nw: 71,  Nn: 113}
+    fine:   {Ns: 400, Nw: 100, Nn: 160}
+xfoil: {panels: 200, iter: 200, ncrit: [9, 11], aseq: [-4, 14, 0.5]}
+neuralfoil: {model_size: xxlarge}
+sysid:
+  seeds: 20
+  log_rate_hz: 50
+  sensor_noise: {accel_ms2: 0.05, gyro_rads: 0.005, baro_m: 0.3, pitot_ms: 0.3, pitot_scale: 0.01, alpha_vane_rad: 0.0087}
+  turbulence: dryden_milf8785c_light
+  speeds_ms: [13.5, 14.5, 15.5, 17.0, 19.0, 21.0]
+  start_alt_m: 900
+  sim_rate_hz: 200
+  # pitch-attitude-hold gains (deg elevator per deg theta, per deg/s q). Chosen so the closed-loop pitch poles stay
+  # within 1.3x of the open-loop short period (<= 2.3 Hz at 21 m/s), resolvable from 50 Hz logs. The first gains
+  # (1.0, 0.3) put a 3.8 to 9.6 Hz pole in the loop; see HONEST_LOG deviation 6.
+  controller: {k_theta: 0.3, k_q: 0.05}
+compressible:
+  wedge:   {mach: [2.0, 3.0], theta_deg: 10}
+  diamond: {mach: [2.0, 3.0], t_over_c: 0.05, alpha_deg: [0, 2, 4]}
+compute:
+  max_parallel_solver_procs: 3
+  mpi_np: 2

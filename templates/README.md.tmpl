@@ -1,0 +1,49 @@
+# FlightLoop
+
+Low-Reynolds-number CFD validated against wind-tunnel data, flight-log system identification, and a blind next-iteration design engine for small UAVs. It takes StratoGlide (a balloon-launched glider design, used read-only at tag `stratoglide-v1`) as its design input and closes the loop from design prediction to flight data to design change.
+
+Every number below is rendered from `results/numbers.json` by `scripts/build_docs.py`; `scripts/check_numbers.py` fails if a document drifts from its template or carries a hand-typed result. Failed pre-registered bars are reported as failed, with the real number, in `HONEST_LOG.md`.
+
+**Data classes.** Public experimental: NASA TM-4062 (E387, Langley LTPT), UIUC LSAT airfoil polars, CMU ALFA flight logs (CC0), PX4 Flight Review logs. Synthetic: every flight produced by this repo's simulator, labelled `source: synthetic` in its metadata. No aircraft was built or flown for this project and no wind tunnel was used; the experimental data is published by the institutions named above.
+
+## Results at a glance
+
+| Module | Result | Check |
+|---|---|---|
+| A. E387 Re 200k, SU2 SA (fully turbulent) | Cd {{e387.sa.re200k.a4.cd_err_pct:+.1f}}% vs TM-4062 at alpha 4, Cl {{e387.sa.re200k.a4.cl_err_pct:+.2f}}% | V07 |
+| A. E387 Re 200k, SU2 SST-LM (transition) | Cd {{e387.lm.re200k.a4.cd_err_pct:+.1f}}%, Cl {{e387.lm.re200k.a4.cl_err_pct:+.2f}}%, bubble x_s {{e387.lm.re200k.a4.xs_err_c:+.3f}}c, x_r {{e387.lm.re200k.a4.xr_err_c:+.3f}}c, state {{e387.lm.re200k.a4.state}} | V06, V08 |
+| A. Grid convergence (SA, 3 grids) | GCI Cl {{e387.gci.sa.cl_fine_pct:.2f}}%, Cd {{e387.gci.sa.cd_fine_pct:.2f}}% | V05 |
+| B. SD7037 stratospheric Re | XFOIL Ncrit 9 Cd {{strato.sd7037.re100k.xfoil_n9_cd_err_pct:+.1f}}% vs corrected {{strato.sd7037.re100k.corrected_cd_err_pct:+.1f}}% at Re 100k (signed mean over CL 0.5 to 0.8) | V10 |
+| C. Multi-fidelity Cd correction | MAPE {{mf.cd_mape_corrected_pct:.2f}}% vs raw XFOIL {{mf.cd_mape_xfoil_pct:.2f}}% vs NeuralFoil {{mf.cd_mape_neuralfoil_pct:.2f}}%, {{mf.n_points}} points, {{mf.n_families}} families, leave-one-family-out | V11 |
+| D. Supersonic wedge / diamond | shock angle {{comp.wedge.m2.beta_err_deg:+.3f}} / {{comp.wedge.m3.beta_err_deg:+.3f}} deg (M2 / M3), diamond Cd {{comp.diamond.m2a2.cd_err_pct:+.2f}}% | V12, V13 |
+| E. Sys-ID, synthetic ({{sysid.synth.n_seeds}} seeds) | median error CLa {{sysid.synth.cla_median_err_pct:.2f}}%, Cma {{sysid.synth.cma_median_err_pct:.2f}}%, Cmq {{sysid.synth.cmq_median_err_pct:.2f}}%, CD0 {{sysid.synth.cd0_median_err_pct:.2f}}% | V15, V16 |
+| E. Sys-ID, CMU ALFA ({{sysid.alfa.n_flights_used}} flights) | CD0 {{sysid.alfa.cd0:.4f}}, k {{sysid.alfa.k:.3f}} (AVL {{sysid.alfa.k_avl:.4f}}) | V17 |
+| F. Blind loop ({{loop.blind.n_seeds}} sealed seeds) | CD0 delta error max {{loop.blind.max_cd0_delta_err_pp:.2f}} pp, SM delta error max {{loop.blind.max_sm_delta_err_mac_pct:.2f}}% MAC, next-flight trim error cut {{loop.blind.trim_err_reduction_pct:.1f}}%, sink {{loop.blind.sink_err_reduction_pct:.1f}}% | V18 |
+
+Full verifier output: see `report/FlightLoop_Report.md`, section 1.
+
+## Run it
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.lock   # SU2 v8.6.0 and XFOIL: see ENV.md
+.venv/bin/python verify.py                    # 20 numbered checks, writes results/verify_report.json
+.venv/bin/python scripts/build_site.py        # site/data/bundle.js from results/
+.venv/bin/python scripts/build_docs.py        # README, RESUME_CONTRACT, report .md and .pdf
+.venv/bin/streamlit run dashboard/app.py      # dashboard on the same bundle
+open site/index.html                          # static page, works from file:// or any subpath
+```
+
+Pipeline order (each script writes its own results and numbers): `scripts/cfd_queue.py cutline` then `scripts/analyze_e387.py` (A), `scripts/run_compressible.py` then `scripts/post_compressible.py` (D), `scripts/run_sysid_synth.py` (E synthetic), `scripts/run_loop_blind.py` and `scripts/correlation_report.py` (F), `scripts/run_mf.py` (C), `scripts/cfd_queue.py strato` then `scripts/run_strato.py` (B), `scripts/parse_logs.py` and `scripts/run_alfa.py` (E real), `scripts/compute_used.py`.
+
+## Layout
+
+```
+flightloop/   cfd (SU2 runner, GCI, VTU), mesh, compressible, sim (6-DOF, Dryden, sensors), sysid, loop, mf, logs
+scripts/      one script per pipeline stage; scripts/diag holds the root-cause diagnostics cited in HONEST_LOG.md
+results/      numbers.json (every number, with script, run id, git sha, data source), per-module JSON, figures
+runs/<id>/    one folder per run: case, config, mesh hash, history, status
+site/         static page; dashboard/ Streamlit app; report/ Markdown and PDF
+PREREG.md     bars committed before any result; HONEST_LOG.md, LIMITS.md, GAPS.md, COMPUTE.md, ENV.md
+```
+
+Compute: {{compute.total_core_h:.1f}} core-hours on a MacBook Air M4 ({{compute.su2_runs}} SU2 runs including superseded ones), {{compute.cloud_gpu_h}} cloud hours.

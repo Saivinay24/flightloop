@@ -1,0 +1,30 @@
+{
+ "airfoil.dat": {
+  "source": "~/Desktop/stratoglide/outputs/geometry/E387.dat",
+  "sha256_16": "7890654605259ec2"
+ },
+ "aircraft.avl": {
+  "source": "~/Desktop/stratoglide/outputs/geometry/stratoglide.avl",
+  "sha256_16": "1a33cccf34536cb5"
+ },
+ "aircraft.mass": {
+  "source": "~/Desktop/stratoglide/outputs/geometry/stratoglide.mass",
+  "sha256_16": "d1eb453e7a2dd7e7"
+ },
+ "numbers.json": {
+  "source": "~/Desktop/stratoglide/results/numbers.json",
+  "sha256_16": "fa0a601fa73e86c9"
+ },
+ "predictions.json": {
+  "source": "~/Desktop/stratoglide/outputs/test_cards/predictions.json",
+  "sha256_16": "6230346467175b51"
+ },
+ "tail_airfoil.dat": {
+  "source": "~/Desktop/stratoglide/outputs/geometry/HT12.dat",
+  "sha256_16": "11c5a4cb4d6d8b73"
+ },
+ "derivs.json": {
+  "source": "aero_tables.nominal()",
+  "stratoglide_git": "stratoglide-v1"
+ }
+}

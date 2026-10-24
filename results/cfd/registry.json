@@ -1,0 +1,708 @@
+{
+ "runs": [
+  {
+   "run_id": "cfd-e387-re200k-a0-SA-medium-20261118-111327-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 0,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "cauchy",
+   "iters": 6485,
+   "cl": 0.3614904227,
+   "cd": 0.01379896279,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.0756807888726786,
+   "yplus_max": 0.3767250180244446,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.36149,
+     "pressure": 0.361115,
+     "friction": 0.000376
+    },
+    "CD": {
+     "total": 0.013799,
+     "pressure": 0.002766,
+     "friction": 0.011033
+    },
+    "CMz": {
+     "total": 0.075012,
+     "pressure": 0.075562,
+     "friction": -0.000549
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 0,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "unsteady",
+   "criterion": null,
+   "iters": 30000,
+   "cl": 0.3696662376403,
+   "cd": 0.010902096706465,
+   "cl_amp": 0.02794283335,
+   "cd_amp": 0.0007817133049999999,
+   "cm": -0.08286436812466089,
+   "yplus_max": 0.3772783875465393,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.377892,
+     "pressure": 0.377356,
+     "friction": 0.000535
+    },
+    "CD": {
+     "total": 0.011174,
+     "pressure": 0.005914,
+     "friction": 0.00526
+    },
+    "CMz": {
+     "total": 0.082478,
+     "pressure": 0.082712,
+     "friction": -0.000234
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-coarse-20261118-111333-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "coarse",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 2134,
+   "cl": 0.7811355844,
+   "cd": 0.01690697259,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07529004607866169,
+   "yplus_max": 0.6474204659461975,
+   "mesh_sha256_16": "50d056a653e0153c",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.781136,
+     "pressure": 0.78062,
+     "friction": 0.000516
+    },
+    "CD": {
+     "total": 0.016907,
+     "pressure": 0.005964,
+     "friction": 0.010943
+    },
+    "CMz": {
+     "total": 0.074365,
+     "pressure": 0.075096,
+     "friction": -0.000731
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-fine-20261118-111334-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "fine",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 6295,
+   "cl": 0.7870100342,
+   "cd": 0.01651484625,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07585360606464504,
+   "yplus_max": 0.2697763741016388,
+   "mesh_sha256_16": "84e17e140893e29e",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.78701,
+     "pressure": 0.78652,
+     "friction": 0.00049
+    },
+    "CD": {
+     "total": 0.016515,
+     "pressure": 0.00559,
+     "friction": 0.010925
+    },
+    "CMz": {
+     "total": 0.075038,
+     "pressure": 0.075768,
+     "friction": -0.00073
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA-medium-20261118-111325-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 2846,
+   "cl": 0.7850506204,
+   "cd": 0.01664547924,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07567524661836059,
+   "yplus_max": 0.41667020320892334,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.785051,
+     "pressure": 0.784554,
+     "friction": 0.000496
+    },
+    "CD": {
+     "total": 0.016645,
+     "pressure": 0.005718,
+     "friction": 0.010927
+    },
+    "CMz": {
+     "total": 0.074818,
+     "pressure": 0.075548,
+     "friction": -0.00073
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SA_BC-medium-20261118-214549-85e1418",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SA_BC",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "incomplete",
+   "criterion": null,
+   "iters": 8264,
+   "cl": 0.7993078843,
+   "cd": 0.01406816907,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07953015049586737,
+   "yplus_max": 0.4186415374279022,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": 0.40446399226847174,
+    "x_r": 0.48093304203439063,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.799029,
+     "pressure": 0.798141,
+     "friction": 0.000888
+    },
+    "CD": {
+     "total": 0.013983,
+     "pressure": 0.008517,
+     "friction": 0.005466
+    },
+    "CMz": {
+     "total": 0.079021,
+     "pressure": 0.079386,
+     "friction": -0.000365
+    }
+   },
+   "reported": false,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST-medium-20261118-214548-85e1418",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 2489,
+   "cl": 0.7720714417,
+   "cd": 0.01676651986,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07380984588061493,
+   "yplus_max": 0.4119822084903717,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.772071,
+     "pressure": 0.771668,
+     "friction": 0.000403
+    },
+    "CD": {
+     "total": 0.016767,
+     "pressure": 0.005979,
+     "friction": 0.010788
+    },
+    "CMz": {
+     "total": 0.072989,
+     "pressure": 0.073698,
+     "friction": -0.000709
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-coarse-20261118-111331-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "coarse",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "unsteady",
+   "criterion": null,
+   "iters": 30000,
+   "cl": 0.7863608591967501,
+   "cd": 0.01437259113378,
+   "cl_amp": 0.014552346549999984,
+   "cd_amp": 0.0007523581649999996,
+   "cm": -0.07684554484205525,
+   "yplus_max": 0.6477602124214172,
+   "mesh_sha256_16": "50d056a653e0153c",
+   "lsb": {
+    "x_s": 0.4117252332637651,
+    "x_r": 0.6349638586201524,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.787929,
+     "pressure": 0.787214,
+     "friction": 0.000714
+    },
+    "CD": {
+     "total": 0.014188,
+     "pressure": 0.007895,
+     "friction": 0.006293
+    },
+    "CMz": {
+     "total": 0.076164,
+     "pressure": 0.076628,
+     "friction": -0.000463
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-fine-20261118-111332-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "fine",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 16328,
+   "cl": 0.7918515835,
+   "cd": 0.01403560765,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07722627440244889,
+   "yplus_max": 0.26944780349731445,
+   "mesh_sha256_16": "84e17e140893e29e",
+   "lsb": {
+    "x_s": 0.4108316042008787,
+    "x_r": 0.6482783917333425,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.791852,
+     "pressure": 0.791155,
+     "friction": 0.000697
+    },
+    "CD": {
+     "total": 0.014036,
+     "pressure": 0.007731,
+     "friction": 0.006304
+    },
+    "CMz": {
+     "total": 0.076667,
+     "pressure": 0.077128,
+     "friction": -0.000461
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "unsteady",
+   "criterion": null,
+   "iters": 30000,
+   "cl": 0.7887266092436,
+   "cd": 0.013893205868245,
+   "cl_amp": 0.006691317649999973,
+   "cd_amp": 0.0004719711099999994,
+   "cm": -0.07695605010585319,
+   "yplus_max": 0.4169195592403412,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": 0.41270625570666,
+    "x_r": 0.6410818961826276,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.790918,
+     "pressure": 0.790224,
+     "friction": 0.000694
+    },
+    "CD": {
+     "total": 0.013934,
+     "pressure": 0.007606,
+     "friction": 0.006328
+    },
+    "CMz": {
+     "total": 0.076344,
+     "pressure": 0.07681,
+     "friction": -0.000465
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 8,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 2604,
+   "cl": 1.167949805,
+   "cd": 0.0240275184,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.07231735301884043,
+   "yplus_max": 0.649531900882721,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": 0.9569728872780539,
+    "x_r": null,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 1.16795,
+     "pressure": 1.167346,
+     "friction": 0.000604
+    },
+    "CD": {
+     "total": 0.024028,
+     "pressure": 0.01491,
+     "friction": 0.009118
+    },
+    "CMz": {
+     "total": 0.071453,
+     "pressure": 0.072226,
+     "friction": -0.000772
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-e387-re200k-a8-SST_LM-medium-20261118-111328-89ecad3",
+   "airfoil": "e387",
+   "re": 200000,
+   "alpha": 8,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "unsteady",
+   "criterion": null,
+   "iters": 30000,
+   "cl": 1.1579056764255002,
+   "cd": 0.02301571722816,
+   "cl_amp": 0.0667748225,
+   "cd_amp": 0.002235034825000001,
+   "cm": -0.07892322979400743,
+   "yplus_max": 0.6525943875312805,
+   "mesh_sha256_16": "0098d2b8ce9ace19",
+   "lsb": {
+    "x_s": 0.004424152166025016,
+    "x_r": 0.009563933881845054,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 1.214661,
+     "pressure": 1.213893,
+     "friction": 0.000768
+    },
+    "CD": {
+     "total": 0.022189,
+     "pressure": 0.01967,
+     "friction": 0.002519
+    },
+    "CMz": {
+     "total": 0.078556,
+     "pressure": 0.078805,
+     "friction": -0.000249
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a2-SA-medium-20261118-181549-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 2,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 5440,
+   "cl": 0.5344660799,
+   "cd": 0.01710394638,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.06986025605987146,
+   "yplus_max": 0.15439927577972412,
+   "mesh_sha256_16": "2cf95b8e81e88a37",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.534466,
+     "pressure": 0.53374,
+     "friction": 0.000726
+    },
+    "CD": {
+     "total": 0.017104,
+     "pressure": 0.004522,
+     "friction": 0.012581
+    },
+    "CMz": {
+     "total": 0.069315,
+     "pressure": 0.069974,
+     "friction": -0.000659
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a2-SST_LM-medium-20261118-181550-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 2,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "incomplete",
+   "criterion": null,
+   "iters": 20485,
+   "cl": 0.4274459262,
+   "cd": 0.01920585103,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.0879601481848973,
+   "yplus_max": 0.16919507086277008,
+   "mesh_sha256_16": "2cf95b8e81e88a37",
+   "lsb": {
+    "x_s": 0.4065527143295926,
+    "x_r": 0.5541562339147856,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.460149,
+     "pressure": 0.459132,
+     "friction": 0.001017
+    },
+    "CD": {
+     "total": 0.025924,
+     "pressure": 0.019215,
+     "friction": 0.006709
+    },
+    "CMz": {
+     "total": 0.087676,
+     "pressure": 0.087895,
+     "friction": -0.000219
+    }
+   },
+   "reported": false,
+   "in_error_stats": false
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 4,
+   "model": "SA",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "converged",
+   "criterion": "residual",
+   "iters": 3182,
+   "cl": 0.739718343,
+   "cd": 0.01910048434,
+   "cl_amp": null,
+   "cd_amp": null,
+   "cm": -0.06874741701253574,
+   "yplus_max": 0.20276573300361633,
+   "mesh_sha256_16": "2cf95b8e81e88a37",
+   "lsb": {
+    "x_s": null,
+    "x_r": null,
+    "bubble": false
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.739718,
+     "pressure": 0.738842,
+     "friction": 0.000876
+    },
+    "CD": {
+     "total": 0.0191,
+     "pressure": 0.006871,
+     "friction": 0.01223
+    },
+    "CMz": {
+     "total": 0.068071,
+     "pressure": 0.068832,
+     "friction": -0.000761
+    }
+   },
+   "reported": true,
+   "in_error_stats": true
+  },
+  {
+   "run_id": "cfd-sd7037-re100k-a4-SST_LM-medium-20261118-181548-0402430",
+   "airfoil": "sd7037",
+   "re": 100000,
+   "alpha": 4,
+   "model": "SST_LM",
+   "level": "medium",
+   "tu_pct": 0.06,
+   "tag_tu": false,
+   "state": "unsteady",
+   "criterion": null,
+   "iters": 30000,
+   "cl": 0.6787895463074001,
+   "cd": 0.02328522486113,
+   "cl_amp": 0.08450450809999999,
+   "cd_amp": 0.009824560855000001,
+   "cm": -0.06137864090662856,
+   "yplus_max": 0.18609459698200226,
+   "mesh_sha256_16": "2cf95b8e81e88a37",
+   "lsb": {
+    "x_s": 0.2791615229916539,
+    "x_r": null,
+    "bubble": true
+   },
+   "breakdown": {
+    "CL": {
+     "total": 0.634552,
+     "pressure": 0.633579,
+     "friction": 0.000973
+    },
+    "CD": {
+     "total": 0.019771,
+     "pressure": 0.013991,
+     "friction": 0.00578
+    },
+    "CMz": {
+     "total": 0.060692,
+     "pressure": 0.061143,
+     "friction": -0.000451
+    }
+   },
+   "reported": true,
+   "in_error_stats": false
+  }
+ ]
+}

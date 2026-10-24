@@ -1,0 +1,1 @@
+{"name": "sa7035", "re": 59900.0, "ncrit": 11, "cols": ["alpha", "cl", "cd", "cdp", "cm", "xtr_top", "xtr_bot"], "rows": [], "nonconverged_alpha": [0.0, 0.5, 0.0, -0.5], "n_requested": 37}

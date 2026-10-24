@@ -1,0 +1,57 @@
+{
+ "run_id": "p0-bench-e387-lm-medium",
+ "case": {
+  "airfoil": "e387",
+  "level": "medium",
+  "alpha": 4,
+  "re": 200000,
+  "model": "SST_LM",
+  "tu_pct": 0.06,
+  "iters": 20,
+  "run_id": "p0-bench-e387-lm-medium",
+  "mesh": "cfd/meshes/e387/e387_medium.su2",
+  "mesh_sha256_16": "c813ecfb9bc30aed",
+  "git_sha": "6001813",
+  "su2_version": "v8.6.0"
+ },
+ "status": {
+  "iters": 320,
+  "rms_p_drop_orders": 3.5607483260000006,
+  "state": "unsteady",
+  "cl_mean_last2000": 0.7700682936128126,
+  "cl_amp_last2000": 0.3248046509,
+  "cd_mean_last2000": 0.07367295554068751,
+  "cd_amp_last2000": 0.5427458589849999,
+  "cl": 0.7844414673,
+  "cd": 0.01312713432,
+  "cmz_su2": 0.07627489858
+ },
+ "yplus_max": 0.8154173493385315,
+ "lsb_upper": {
+  "x_s": 0.4866305216418054,
+  "x_r": null,
+  "bubble": true
+ },
+ "cp_integral": {
+  "cn": 0.7821043296310306,
+  "cc": -0.047227118555340654,
+  "cm_c4_noseup": -0.07662399065175109
+ },
+ "breakdown": {
+  "CL": {
+   "total": 0.784441,
+   "pressure": 0.783489,
+   "friction": 0.000952
+  },
+  "CD": {
+   "total": 0.013127,
+   "pressure": 0.007444,
+   "friction": 0.005683
+  },
+  "CMz": {
+   "total": 0.076275,
+   "pressure": 0.076601,
+   "friction": -0.000326
+  }
+ }
+}

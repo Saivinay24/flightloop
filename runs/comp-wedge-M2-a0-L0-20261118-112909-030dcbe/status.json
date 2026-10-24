@@ -1,0 +1,5 @@
+{
+ "status": "superseded",
+ "by": "comp-wedge-M2-a0-L0-20261118-182256-0402430",
+ "reason": "ran under the first stopping rule and hit the 6000 cap in a residual limit cycle (4.2 orders; CD deviation over last 100 iterations 4.5e-8); case.cfg later overwritten, log.txt is the record. HONEST_LOG 13."
+}

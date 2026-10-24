@@ -1,0 +1,57 @@
+{
+ "run_id": "cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430",
+ "case": {
+  "airfoil": "sd7037",
+  "re": 100000,
+  "alpha": 4,
+  "model": "SA",
+  "level": "medium",
+  "tu_pct": 0.06,
+  "iters": 12000,
+  "tag_tu": false,
+  "run_id": "cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430",
+  "mesh": "cfd/meshes/sd7037/sd7037_medium.su2",
+  "mesh_sha256_16": "2cf95b8e81e88a37",
+  "git_sha": "0402430",
+  "su2_version": "v8.6.0"
+ },
+ "status": {
+  "iters": 3182,
+  "rms_p_drop_orders": 6.0262428230000005,
+  "cl_maxreldev_1000": 9.971308768802656e-05,
+  "cd_maxreldev_1000": 0.00033331196668478255,
+  "state": "converged",
+  "criterion": "residual",
+  "cl": 0.739718343,
+  "cd": 0.01910048434,
+  "cmz_su2": 0.06807147097
+ },
+ "yplus_max": 0.20276573300361633,
+ "lsb_upper": {
+  "x_s": null,
+  "x_r": null,
+  "bubble": false
+ },
+ "cp_integral": {
+  "cn": 0.7373830348927981,
+  "cc": -0.044694315705641585,
+  "cm_c4_noseup": -0.06874741701253574
+ },
+ "breakdown": {
+  "CL": {
+   "total": 0.739718,
+   "pressure": 0.738842,
+   "friction": 0.000876
+  },
+  "CD": {
+   "total": 0.0191,
+   "pressure": 0.006871,
+   "friction": 0.01223
+  },
+  "CMz": {
+   "total": 0.068071,
+   "pressure": 0.068832,
+   "friction": -0.000761
+  }
+ }
+}

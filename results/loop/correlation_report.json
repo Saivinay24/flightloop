@@ -1,0 +1,342 @@
+{
+ "label": "SYNTHETIC flight (blind loop seed); not a flight result",
+ "loop_run_id": "loop-blind6-20261118-182042-0402430",
+ "seed": 1,
+ "n_cards": 25,
+ "n_measured": 12,
+ "n_inside": 5,
+ "rows": [
+  {
+   "card": "FT-1",
+   "quantity": "stall EAS",
+   "unit": "m/s",
+   "predicted": 11.0,
+   "band": [
+    10.45,
+    11.55
+   ],
+   "stratoglide_key": "p3.vs_eas_sl",
+   "status": "n/a (no stall test in the synthetic schedule; the identification envelope stops at alpha 9.6 deg)"
+  },
+  {
+   "card": "FT-1",
+   "quantity": "V_bestLD EAS (SL)",
+   "unit": "m/s",
+   "predicted": 14.1316,
+   "band": [
+    12.718440000000001,
+    15.544760000000002
+   ],
+   "stratoglide_key": "p7.V_bestLD_eas_0km",
+   "flightloop_design": 12.04160893016498,
+   "measured": 11.314939656557184,
+   "status": "outside band",
+   "next_iteration": "CD0 +29.9% vs design; V_bg = sqrt(2W/(rho S)) (k/CD0)^(1/4); V_ms = sqrt(2W/(rho S)) (k/(3 CD0))^(1/4); (L/D)max = 1/(2 sqrt(k CD0))"
+  },
+  {
+   "card": "FT-1",
+   "quantity": "L/D max (SL)",
+   "unit": "-",
+   "predicted": 11.8964,
+   "band": [
+    10.706760000000001,
+    13.08604
+   ],
+   "stratoglide_key": "p7.LD_max_0km",
+   "flightloop_design": 9.874649313467403,
+   "measured": 8.607236227697582,
+   "status": "outside band",
+   "next_iteration": "CD0 +29.9% vs design; V_bg = sqrt(2W/(rho S)) (k/CD0)^(1/4); V_ms = sqrt(2W/(rho S)) (k/(3 CD0))^(1/4); (L/D)max = 1/(2 sqrt(k CD0))"
+  },
+  {
+   "card": "FT-1",
+   "quantity": "min sink rate (SL)",
+   "unit": "m/s",
+   "predicted": 1.08023,
+   "band": [
+    0.972207,
+    1.1882530000000002
+   ],
+   "stratoglide_key": "p7.sink_min_0km",
+   "flightloop_design": 1.0699214445697294,
+   "measured": 1.1533936985255253,
+   "status": "inside band"
+  },
+  {
+   "card": "FT-1",
+   "quantity": "trim elevator at loiter CL (SL)",
+   "unit": "deg",
+   "predicted": -1.70546,
+   "band": [
+    -2.131825,
+    -1.2790949999999999
+   ],
+   "stratoglide_key": "p4.trim_elevator_deg_sl",
+   "flightloop_design": -1.6167799772380755,
+   "measured": -0.5763114149844031,
+   "status": "outside band",
+   "next_iteration": "tail incidence change +0.17 deg (first-order, tau_e assumed)"
+  },
+  {
+   "card": "FT-1",
+   "quantity": "static margin",
+   "unit": "%MAC",
+   "predicted": 11.491,
+   "band": [
+    8.491,
+    14.491
+   ],
+   "stratoglide_key": "p4.sm_pct_sl",
+   "flightloop_design": 11.490403102510228,
+   "measured": 7.489802371632663,
+   "status": "outside band",
+   "next_iteration": "move CG forward 11.0 mm (4.00% MAC) or raise V_h by 0.112"
+  },
+  {
+   "card": "FT-2",
+   "quantity": "electrical power at SL cruise (loiter CL)",
+   "unit": "W",
+   "predicted": 90.4264,
+   "band": [
+    81.38376000000001,
+    99.46904
+   ],
+   "stratoglide_key": "p8.ft2_p_elec_cruise_w",
+   "status": "n/a (blind flights are unpowered)"
+  },
+  {
+   "card": "FT-2",
+   "quantity": "climb rate at full power (SL)",
+   "unit": "m/s",
+   "predicted": 11.0339,
+   "band": [
+    9.93051,
+    12.13729
+   ],
+   "stratoglide_key": "p8.ft2_climb_rate_full_power",
+   "status": "n/a (blind flights are unpowered)"
+  },
+  {
+   "card": "FT-2",
+   "quantity": "RPM at SL cruise",
+   "unit": "rpm",
+   "predicted": 1983.18,
+   "band": [
+    1784.862,
+    2181.498
+   ],
+   "stratoglide_key": "p8.ft2_rpm_cruise",
+   "status": "n/a (blind flights are unpowered)"
+  },
+  {
+   "card": "FT-3",
+   "quantity": "trim gradient d(delta_e)/dCL",
+   "unit": "deg/CL",
+   "predicted": -5.06475,
+   "band": [
+    -6.3309375,
+    -3.7985625
+   ],
+   "stratoglide_key": "p8.ft3_dde_dcl_deg",
+   "flightloop_design": -5.0647521058360425,
+   "measured": -3.7442603191617345,
+   "method": "regression of steady-glide mean elevator on mean CL (model-free)",
+   "status": "outside band",
+   "next_iteration": "tail incidence change +0.17 deg (first-order, tau_e assumed)"
+  },
+  {
+   "card": "FT-3",
+   "quantity": "neutral point x (from wing root LE)",
+   "unit": "m",
+   "predicted": 0.158438,
+   "band": [
+    0.15051609999999999,
+    0.1663599
+   ],
+   "stratoglide_key": "p4.x_np_m",
+   "flightloop_design": 0.1584367974638433,
+   "measured": 0.1474228937630552,
+   "status": "outside band",
+   "next_iteration": "move CG forward 11.0 mm (4.00% MAC) or raise V_h by 0.112"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "short-period natural frequency (SL)",
+   "unit": "rad/s",
+   "predicted": 7.92582,
+   "band": [
+    6.340656,
+    9.510983999999999
+   ],
+   "stratoglide_key": "p4.short_period_wn_sl",
+   "flightloop_design": 8.394337530111377,
+   "measured": 7.305047585033374,
+   "status": "inside band"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "short-period damping ratio (SL)",
+   "unit": "-",
+   "predicted": 0.676334,
+   "band": [
+    0.5410672,
+    0.8116008
+   ],
+   "stratoglide_key": "p4.short_period_zeta_sl",
+   "flightloop_design": 0.6618255334274126,
+   "measured": 0.7244328623357993,
+   "status": "inside band"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "Cm_alpha",
+   "unit": "1/rad",
+   "predicted": -0.546234,
+   "band": [
+    -0.6827925,
+    -0.40967549999999997
+   ],
+   "stratoglide_key": "p4.Cma_sl",
+   "flightloop_design": -0.546234,
+   "measured": -0.3492622627542428,
+   "status": "outside band",
+   "next_iteration": "move CG forward 11.0 mm (4.00% MAC) or raise V_h by 0.112"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "Cm_q",
+   "unit": "1/rad",
+   "predicted": -8.92077,
+   "band": [
+    -11.150962499999999,
+    -6.6905775
+   ],
+   "stratoglide_key": "p4.Cmq_sl",
+   "flightloop_design": -8.920773,
+   "measured": -8.29870872739246,
+   "status": "inside band"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "Cm_delta_e",
+   "unit": "1/deg",
+   "predicted": -0.022687,
+   "band": [
+    -0.02835875,
+    -0.01701525
+   ],
+   "stratoglide_key": "p4.Cmd02_sl",
+   "flightloop_design": -0.022687,
+   "measured": -0.01962491038135187,
+   "status": "inside band"
+  },
+  {
+   "card": "FT-4",
+   "quantity": "Cl_p",
+   "unit": "1/rad",
+   "predicted": -0.438388,
+   "band": [
+    -0.5479849999999999,
+    -0.328791
+   ],
+   "stratoglide_key": "p4.Clp_sl",
+   "status": "n/a (no roll excitation flown)"
+  },
+  {
+   "card": "FT-5",
+   "quantity": "altitude lost in pull-out",
+   "unit": "m",
+   "predicted": 40.4492,
+   "band": [
+    27.4686,
+    69.278
+   ],
+   "stratoglide_key": "p8.ft5_alt_lost_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-5",
+   "quantity": "peak load factor",
+   "unit": "g",
+   "predicted": 2.00289,
+   "band": [
+    1.77717,
+    2.30233
+   ],
+   "stratoglide_key": "p8.ft5_nz_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-5",
+   "quantity": "peak EAS",
+   "unit": "m/s",
+   "predicted": 21.385,
+   "band": [
+    18.4919,
+    23.8622
+   ],
+   "stratoglide_key": "p8.ft5_eas_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-5",
+   "quantity": "time to recover",
+   "unit": "s",
+   "predicted": 11.27,
+   "band": [
+    7.307,
+    19.661
+   ],
+   "stratoglide_key": "p8.ft5_t_rec_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-6",
+   "quantity": "altitude lost in pull-out",
+   "unit": "m",
+   "predicted": 90.1721,
+   "band": [
+    59.7189,
+    170.842
+   ],
+   "stratoglide_key": "p8.ft6_alt_lost_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-6",
+   "quantity": "peak load factor",
+   "unit": "g",
+   "predicted": 2.26489,
+   "band": [
+    2.10054,
+    2.52126
+   ],
+   "stratoglide_key": "p8.ft6_nz_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-6",
+   "quantity": "peak EAS",
+   "unit": "m/s",
+   "predicted": 21.032,
+   "band": [
+    18.1358,
+    23.8251
+   ],
+   "stratoglide_key": "p8.ft6_eas_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  },
+  {
+   "card": "FT-6",
+   "quantity": "time to recover",
+   "unit": "s",
+   "predicted": 15.815,
+   "band": [
+    9.9575,
+    30.621
+   ],
+   "stratoglide_key": "p8.ft6_t_rec_p50",
+   "status": "n/a (pull-out cards FT-5/FT-6 not flown)"
+  }
+ ]
+}

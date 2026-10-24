@@ -1,0 +1,12 @@
+{
+ "source": "alfa",
+ "sequence": "carbonZ_2018-07-18-15-53-31_1_engine_failure",
+ "t_engine_failure_s": 116.16599583625793,
+ "imu_rate_hz": 2.4763140664399925,
+ "airspeed_rate_hz": 19.37211015530281,
+ "derived_fields": {
+  "tas": "EAS x sqrt(1.225/rho), rho from static pressure + ISA temperature (approx.)",
+  "de": "rc-out ch2 PWM -> (PWM-1500)/500, per unit command"
+ },
+ "license": "CC0 (CMU ALFA, doi 10.1184/R1/12707963)"
+}

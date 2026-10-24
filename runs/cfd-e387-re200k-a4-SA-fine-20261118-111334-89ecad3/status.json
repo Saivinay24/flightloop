@@ -1,0 +1,11 @@
+{
+ "iters": 6295,
+ "rms_p_drop_orders": 6.514873139999999,
+ "cl_maxreldev_1000": 1.4647208420556915e-05,
+ "cd_maxreldev_1000": 5.852067802335402e-05,
+ "state": "converged",
+ "criterion": "residual",
+ "cl": 0.7870100342,
+ "cd": 0.01651484625,
+ "cmz_su2": 0.07503842337
+}

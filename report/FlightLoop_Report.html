@@ -1,0 +1,1159 @@
+<!doctype html><html><head><meta charset='utf-8'><title>FlightLoop Report</title><style>body{font:10.5pt/1.45 -apple-system,Helvetica,Arial,sans-serif;color:#0b1324;margin:0}
+h1{font-size:20pt;margin:0 0 4pt;color:#0b1324;border-bottom:3pt solid #FED176;padding-bottom:4pt}
+h2{font-size:13.5pt;margin:16pt 0 4pt;color:#111c33;border-bottom:1pt solid #c9d3e6;padding-bottom:2pt}
+h3{font-size:11pt;margin:10pt 0 3pt}
+table{border-collapse:collapse;width:100%;margin:6pt 0;font-size:8.6pt;page-break-inside:auto}
+th,td{border:0.6pt solid #c9d3e6;padding:2.5pt 4pt;text-align:left;vertical-align:top}
+th{background:#eef2f9}
+code{font:8.6pt Menlo,monospace;background:#f3f5fa;padding:0 2pt}
+pre{background:#f3f5fa;padding:6pt;font-size:8.4pt;white-space:pre-wrap}
+@page{size:A4;margin:16mm 14mm}</style></head><body><h1>FlightLoop Report</h1>
+<p>Sai Vinay Bhoomireddy. Low-Re CFD validation, flight-log system identification and a closed design loop for small UAVs, with StratoGlide (tag <code>stratoglide-v1</code>, read-only) as the design input.</p>
+<p>Every number in this report is rendered from <code>results/numbers.json</code> or from a generated results file by <code>scripts/build_docs.py</code>; <code>scripts/check_numbers.py</code> (check V19) fails on any drift. Data classes are stated per section: public experimental, CFD, low-order, synthetic. No aircraft was built or flown and no wind tunnel was used for this project.</p>
+<h2>1. Verifier status</h2>
+<p>Command: <code>.venv/bin/python verify.py</code>. [I] = integrity check, [R] = result bar pre-registered in <code>PREREG.md</code> before any result was committed.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Class</th>
+<th>Result</th>
+<th>Measured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V01</td>
+<td>I</td>
+<td>PASS</td>
+<td>rho11 0.3648 (+0.25%), rho20 0.0889 (+0.01%), nu18 1.169e-04 (+0.96%)</td>
+</tr>
+<tr>
+<td>V02</td>
+<td>I</td>
+<td>PASS</td>
+<td>data files without SOURCES row: 0; TM-4062 unresolved diffs 0; canonical logs 210 (simulator outputs must say synthetic), mislabelled 0</td>
+</tr>
+<tr>
+<td>V03</td>
+<td>I</td>
+<td>PASS</td>
+<td>max y+ 0.653 over 14 reported runs; per-direction ratios 1.419, 1.417, 1.419, 1.417; runs without mesh SHA 0</td>
+</tr>
+<tr>
+<td>V04</td>
+<td>I</td>
+<td>PASS</td>
+<td>6 runs in error statistics, non-converged among them 0; unsteady runs 5 (all in Trust Map: True)</td>
+</tr>
+<tr>
+<td>V05</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>SA: GCI Cl 0.32% (p 1.97), Cd 1.00% (p 1.97); SST_LM: Cl monotone (unsteady inputs), Cd oscillatory (bars Cl &lt; 2%, Cd &lt; 5%, p in [0.5, 3])</td>
+</tr>
+<tr>
+<td>V06</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>SST-LM Re 200k a4 (state unsteady, in error stats False): Cl +0.3%, Cd +4.4%, RMS dCp upper 0.078 (bars 5%, 20%, 0.05)</td>
+</tr>
+<tr>
+<td>V07</td>
+<td>R</td>
+<td>PASS</td>
+<td>SA Cd +25.1% vs TM-4062 (bar &gt; +25%)</td>
+</tr>
+<tr>
+<td>V08</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>a0: no bubble/reattachment in CFD; a4 (NOT in error stats): x_s +0.013c, x_r +0.021c (bars 0.05c, 0.08c)</td>
+</tr>
+<tr>
+<td>V09</td>
+<td>I</td>
+<td>PASS</td>
+<td>Trust Map covers 12/12 E387 runs; LIMITS.md quantified failure regions 8</td>
+</tr>
+<tr>
+<td>V10</td>
+<td>I</td>
+<td>PASS</td>
+<td>DISAGREEMENT.md rows 21, empty cells 0, Re covered ['100', '60', '80']</td>
+</tr>
+<tr>
+<td>V11</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>Cd MAPE corrected 9.5% vs raw XFOIL 12.6% (ratio 0.76, bar &lt;= 0.75) vs NeuralFoil 10.7%; leakage assert [I] PASS</td>
+</tr>
+<tr>
+<td>V12</td>
+<td>R</td>
+<td>PASS</td>
+<td>M2: beta 39.32 (+0.01 deg), p2/p1 1.7065 (-0.03%); M3: beta 27.40 (+0.02 deg), p2/p1 2.0544 (-0.03%) (bars 0.5 deg, 1%)</td>
+</tr>
+<tr>
+<td>V13</td>
+<td>R</td>
+<td>PASS</td>
+<td>M2 a2 fine: Cl 0.0803 (-0.85%), Cd 0.00847 (-1.87%), monotone Cl True, Cd True</td>
+</tr>
+<tr>
+<td>V14</td>
+<td>I</td>
+<td>PASS</td>
+<td>synthetic Parquet round-trip exact True; PX4 ULogs to full schema 1; ArduPilot .bin to full schema 3</td>
+</tr>
+<tr>
+<td>V15</td>
+<td>R</td>
+<td>PASS</td>
+<td>CD0 1.5% (&lt;5), k 1.9% (&lt;10), CLa 2.0% (&lt;5), Cma 2.0% (&lt;10), Cmde 2.1% (&lt;10), Cmq 3.4% (&lt;25) median /err/, 20 seeds</td>
+</tr>
+<tr>
+<td>V16</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>CD0 25%, CLa 60%, Cma 60% of seeds inside 95% CI (bar 80-100%)</td>
+</tr>
+<tr>
+<td>V17</td>
+<td>I</td>
+<td>PASS</td>
+<td>ALFA flights used 8, segments 21; estimates without CI/residual 0; AVL-vs-flight table present</td>
+</tr>
+<tr>
+<td>V18</td>
+<td>R</td>
+<td>FAIL (logged)</td>
+<td>6 blind seeds: CD0 delta err max 2.89 pp, SM delta err max 0.17% MAC, sink err cut 4%, trim err cut 51%; sealed truth opened by engine [I]: False</td>
+</tr>
+<tr>
+<td>V19</td>
+<td>I</td>
+<td>PASS</td>
+<td>missing outward files []; files with U+2014 []; numbers in resume/report not equal to numbers.json: 0</td>
+</tr>
+<tr>
+<td>V20</td>
+<td>I</td>
+<td>PASS</td>
+<td>secrets 0; attribution in git log False; weapon-term hits []; PREREG committed before first results commit True</td>
+</tr>
+</tbody>
+</table>
+<p>INTEGRITY 10/10, RESULTS 4/10.</p>
+<h2>2. Module A: E387 at Re 200k vs NASA TM-4062 (CFD vs public experimental)</h2>
+<p>SU2 v8.6.0 incompressible RANS, SA (fully turbulent) and SST with Langtry-Menter transition (SST-LM, Tu as measured in the LTPT), own C-mesh with first-cell y+ max 0.65 over 11 reported runs, three systematically refined grids at alpha 4. A run counts in error statistics only when it meets the residual or Cauchy criterion; 4 runs ended unsteady at the iteration cap and are reported with their oscillation half-amplitude.</p>
+<table>
+<thead>
+<tr>
+<th>alpha</th>
+<th>Model</th>
+<th>State</th>
+<th>Cl</th>
+<th>Cl exp</th>
+<th>Cl err</th>
+<th>Cd</th>
+<th>Cd exp</th>
+<th>Cd err</th>
+<th>Cd half-amplitude</th>
+<th>RMS dCp upper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>SA</td>
+<td>converged</td>
+<td>0.3615</td>
+<td>0.3510</td>
+<td>+3.0%</td>
+<td>0.01380</td>
+<td>0.01055</td>
+<td>+30.8%</td>
+<td>steady</td>
+<td>0.051</td>
+</tr>
+<tr>
+<td>0</td>
+<td>SST_LM</td>
+<td>unsteady</td>
+<td>0.3697</td>
+<td>0.3510</td>
+<td>+5.3%</td>
+<td>0.01090</td>
+<td>0.01055</td>
+<td>+3.3%</td>
+<td>0.00078</td>
+<td>0.041</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SA</td>
+<td>converged</td>
+<td>0.7851</td>
+<td>0.7860</td>
+<td>-0.1%</td>
+<td>0.01665</td>
+<td>0.01330</td>
+<td>+25.1%</td>
+<td>steady</td>
+<td>0.096</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SST_LM</td>
+<td>unsteady</td>
+<td>0.7887</td>
+<td>0.7860</td>
+<td>+0.3%</td>
+<td>0.01389</td>
+<td>0.01330</td>
+<td>+4.4%</td>
+<td>0.00047</td>
+<td>0.078</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SST</td>
+<td>converged</td>
+<td>0.7721</td>
+<td>0.7860</td>
+<td>-1.8%</td>
+<td>0.01677</td>
+<td>0.01330</td>
+<td>+26.0%</td>
+<td>steady</td>
+<td>0.091</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SA</td>
+<td>converged</td>
+<td>1.1679</td>
+<td>1.1794</td>
+<td>-1.0%</td>
+<td>0.02403</td>
+<td>0.01744</td>
+<td>+37.8%</td>
+<td>steady</td>
+<td>0.212</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SST_LM</td>
+<td>unsteady</td>
+<td>1.1579</td>
+<td>1.1794</td>
+<td>-1.8%</td>
+<td>0.02302</td>
+<td>0.01744</td>
+<td>+32.0%</td>
+<td>0.00224</td>
+<td>0.247</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Laminar separation bubble (SST-LM vs TM-4062 oil flow, chord fractions).</strong></p>
+<table>
+<thead>
+<tr>
+<th>alpha</th>
+<th>Oil flow x_s</th>
+<th>Oil flow x_r</th>
+<th>SST-LM x_s</th>
+<th>SST-LM x_r</th>
+<th>Error x_s</th>
+<th>Error x_r</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0.48</td>
+<td>0.74</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>run not in error statistics</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.40</td>
+<td>0.62</td>
+<td>0.413</td>
+<td>0.641</td>
+<td>+0.013</td>
+<td>+0.021</td>
+<td>run not in error statistics</td>
+</tr>
+<tr>
+<td>8</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>0.004</td>
+<td>0.010</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>NT at 0.32</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Grid convergence (Celik et al. 2008).</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Quantity</th>
+<th>States (fine/medium/coarse)</th>
+<th>Fine / medium / coarse</th>
+<th>Type</th>
+<th>p</th>
+<th>GCI fine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SA</td>
+<td>CL</td>
+<td>converged/converged/converged</td>
+<td>0.78701 / 0.78505 / 0.78114</td>
+<td>monotone</td>
+<td>1.97</td>
+<td>0.32%</td>
+</tr>
+<tr>
+<td>SA</td>
+<td>CD</td>
+<td>converged/converged/converged</td>
+<td>0.01651 / 0.01665 / 0.01691</td>
+<td>monotone</td>
+<td>1.97</td>
+<td>1.00%</td>
+</tr>
+<tr>
+<td>SST_LM</td>
+<td>CL</td>
+<td>converged/unsteady/unsteady</td>
+<td>0.79185 / 0.78873 / 0.78636</td>
+<td>monotone (unsteady inputs)</td>
+<td>0.81</td>
+<td>1.51%</td>
+</tr>
+<tr>
+<td>SST_LM</td>
+<td>CD</td>
+<td>converged/unsteady/unsteady</td>
+<td>0.01404 / 0.01389 / 0.01437</td>
+<td>oscillatory</td>
+<td>n/a</td>
+<td>n/a (oscillatory)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading.</strong> The fully turbulent SA model over-predicts drag at every alpha because it has no laminar run and no bubble; this is the pre-registered physics story (V07). SST-LM reproduces the alpha 4 bubble location within +0.013c (separation) and +0.021c (reattachment) and the time-mean Cd within +4.4%, but on the coarse and medium grids it never reached a steady state, so by the pre-registered rule those runs are outside error statistics and V05, V06 and V08 fail. A URANS treatment of the bubble is deferred (GAPS.md).</p>
+<p><strong>Quantified failure regions (LIMITS.md).</strong></p>
+<ol>
+<li>SA (fully turbulent) at alpha 0 deg: Cd error +30.8% (friction share 80% of Cd), because SA has no laminar run and no bubble.</li>
+<li>SA (fully turbulent) at alpha 4 deg: Cd error +25.1% (friction share 66% of Cd), because SA has no laminar run and no bubble.</li>
+<li>SA (fully turbulent) at alpha 8 deg: Cd error +37.8% (friction share 38% of Cd), because SA has no laminar run and no bubble.</li>
+<li>SST-LM at alpha 0 deg: state unsteady, Cd oscillation half-amplitude 7.2% of mean over the last 2000 iterations; Cl error +5.3%, Cd error +3.3%; no separation found in CFD.</li>
+<li>SST-LM at alpha 4 deg: state unsteady, Cd oscillation half-amplitude 3.4% of mean over the last 2000 iterations; Cl error +0.3%, Cd error +4.4%; bubble x_s 0.413c vs oil flow 0.4, x_r 0.641c vs 0.62.</li>
+<li>SST-LM at alpha 8 deg: state unsteady, Cd oscillation half-amplitude 9.7% of mean over the last 2000 iterations; Cl error -1.8%, Cd error +32.0%; no separation found in CFD.</li>
+<li>Grid dependence SA alpha 4 deg: Cl monotone GCI 0.32%, Cd monotone GCI 1.00% (p 1.97).</li>
+<li>Grid dependence SST_LM alpha 4 deg: Cl monotone (unsteady inputs) GCI 1.51%, Cd oscillatory.</li>
+</ol>
+<h2>3. Module B: SD7037 at stratospheric Reynolds numbers (CFD, low-order vs public experimental)</h2>
+<h1>DISAGREEMENT: SD7037 at stratospheric Reynolds numbers (generated by scripts/run_strato.py)</h1>
+<p>Airfoil: SD7037 (B), as-tested UIUC coordinates (StratoGlide's selected airfoil family). Data: UIUC LSAT (public experimental), SU2 (CFD), XFOIL/NeuralFoil (low-order). Cd error = mean |Cd_tool - Cd_exp| / Cd_exp over CL 0.5, 0.6, 0.7, 0.8 (SU2: at the CL of each run).</p>
+<p>Low-order tools run at the experiment's Re (60.5k, 101.4k); SU2 runs at 60k and 100k. XFOIL points with friction drag below the one-sided laminar flat-plate value 1.328/sqrt(Re) are dropped as non-physical: Re 60k Ncrit 9: 0, Ncrit 11: 0, Re 80k Ncrit 9: 0, Ncrit 11: 0, Re 100k Ncrit 9: 0, Ncrit 11: 0.</p>
+<table>
+<thead>
+<tr>
+<th>Re</th>
+<th>Tool</th>
+<th>Cd error vs experiment</th>
+<th>Cl_max</th>
+<th>Bubble / transition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Re 60k</td>
+<td>SU2 SST-LM</td>
+<td>n/a (run not finished)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Re 60k</td>
+<td>SU2 SA</td>
+<td>n/a (run not finished)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Re 60k (run at 60.5k)</td>
+<td>XFOIL Ncrit 9</td>
+<td>10.8%</td>
+<td>1.255</td>
+<td>x_tr upper 0.72c at CL 0.7</td>
+</tr>
+<tr>
+<td>Re 60k (run at 60.5k)</td>
+<td>XFOIL Ncrit 11</td>
+<td>40.0%</td>
+<td>1.211</td>
+<td>x_tr upper 0.70c at CL 0.7</td>
+</tr>
+<tr>
+<td>Re 60k (run at 60.5k)</td>
+<td>NeuralFoil xxlarge</td>
+<td>7.7%</td>
+<td>1.314</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 60k (run at 60.5k)</td>
+<td>XFOIL corrected (Module C)</td>
+<td>4.2%</td>
+<td>n/a (correction is for Cd only)</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 60k</td>
+<td>UIUC experiment</td>
+<td>reference</td>
+<td>1.221</td>
+<td>n/a (no flow visualisation in LSAT vol. 3 for SD7037)</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>SU2 SST-LM</td>
+<td>n/a (run not in compute budget)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>SU2 SA</td>
+<td>n/a (run not in compute budget)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>XFOIL Ncrit 9</td>
+<td>n/a (no experiment)</td>
+<td>1.282</td>
+<td>x_tr upper 0.74c at CL 0.7</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>XFOIL Ncrit 11</td>
+<td>n/a (no experiment)</td>
+<td>1.270</td>
+<td>x_tr upper 0.75c at CL 0.7</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>NeuralFoil xxlarge</td>
+<td>n/a (no experiment)</td>
+<td>1.335</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>XFOIL corrected (Module C)</td>
+<td>n/a (no experiment)</td>
+<td>n/a (correction is for Cd only)</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 80k</td>
+<td>UIUC experiment</td>
+<td>n/a (no experiment at this Re)</td>
+<td>n/a (no experiment)</td>
+<td>n/a (no flow visualisation in LSAT vol. 3 for SD7037)</td>
+</tr>
+<tr>
+<td>Re 100k</td>
+<td>SU2 SST-LM</td>
+<td>39.2% (at CL 0.68; unsteady)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>x_s 0.28c, x_r none at CL 0.68</td>
+</tr>
+<tr>
+<td>Re 100k</td>
+<td>SU2 SA</td>
+<td>7.6% (at CL 0.53, 0.74; converged)</td>
+<td>n/a (alpha sweep not run)</td>
+<td>no bubble in CFD</td>
+</tr>
+<tr>
+<td>Re 100k (run at 101.4k)</td>
+<td>XFOIL Ncrit 9</td>
+<td>8.8%</td>
+<td>1.285</td>
+<td>x_tr upper 0.75c at CL 0.7</td>
+</tr>
+<tr>
+<td>Re 100k (run at 101.4k)</td>
+<td>XFOIL Ncrit 11</td>
+<td>n/a (XFOIL did not converge)</td>
+<td>n/a (XFOIL halted: 4 non-converged points from alpha 0)</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 100k (run at 101.4k)</td>
+<td>NeuralFoil xxlarge</td>
+<td>11.0%</td>
+<td>1.342</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 100k (run at 101.4k)</td>
+<td>XFOIL corrected (Module C)</td>
+<td>1.1%</td>
+<td>n/a (correction is for Cd only)</td>
+<td>n/a (no transition output)</td>
+</tr>
+<tr>
+<td>Re 100k</td>
+<td>UIUC experiment</td>
+<td>reference</td>
+<td>1.245</td>
+<td>n/a (no flow visualisation in LSAT vol. 3 for SD7037)</td>
+</tr>
+</tbody>
+</table>
+<h2>Why the tools disagree (each item is tested against the table, not asserted)</h2>
+<ol>
+<li>XFOIL Ncrit 9 vs 11: Mack's relation Ncrit = -8.43 - 2.4 ln(Tu) maps Ncrit 9 to Tu 0.070% and Ncrit 11 to Tu 0.030%; the spread between the two rows is the sensitivity to the (unknown) disturbance level, which is the argument for quieter stratospheric air, not a measurement of it.</li>
+<li>XFOIL's e^N envelope with viscous-inviscid coupling is calibrated on natural Tollmien-Schlichting transition in quiet tunnels, which is the mechanism that sets the bubble at this Re; its Cd error here is the size of the residual that Module C learns.</li>
+<li>SU2 SST-LM uses Langtry-Menter correlations calibrated mostly on bypass transition; the result depends on the Tu that survives to the leading edge (freestream decay is logged per run).</li>
+<li>SU2 SA is fully turbulent: no laminar run and no bubble, so it over-predicts friction drag by construction at Re 60k to 100k.</li>
+<li>NeuralFoil is trained on XFOIL output, so it inherits XFOIL's bias; its authors flag Re near 80k as a hard regime (analysis_confidence median reported per Re).</li>
+<li>Corrected XFOIL applies the Module C model trained on every non-test family; SD7037 never entered training, so its row is a genuine out-of-sample test.</li>
+<li>UIUC LSAT vol. 3 has drag polars at Re 60.5k and 101.4k for SD7037 (B); there is no Re 80k experiment, so the 80k rows report tool spread only.</li>
+</ol>
+<p>NeuralFoil analysis_confidence (median over the alpha sweep): Re 60k 0.98, Re 80k 0.98, Re 100k 0.98.</p>
+<h2>4. Module C: multi-fidelity drag correction (low-order vs public experimental)</h2>
+<p>A correction to XFOIL (Ncrit 9) drag, log(Cd_exp / Cd_xfoil) regressed on XFOIL outputs and section geometry, chosen by inner GroupKFold and scored leave-one-family-out over 18 UIUC airfoil families (1356 identical airfoil, Re, Cl points). E387 and SD7037 families never enter training.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Cd MAPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>corrected XFOIL</td>
+<td>9.54%</td>
+</tr>
+<tr>
+<td>raw XFOIL Ncrit 9</td>
+<td>12.59%</td>
+</tr>
+<tr>
+<td>NeuralFoil 0.3.3 xxlarge</td>
+<td>10.71%</td>
+</tr>
+<tr>
+<td>held-out test airfoils: corrected / raw XFOIL</td>
+<td>9.76% / 11.09%</td>
+</tr>
+<tr>
+<td>E387 Re 100k signed Cd error: raw XFOIL / corrected</td>
+<td>-10.4% / -6.8%</td>
+</tr>
+</tbody>
+</table>
+<p>The reduction against raw XFOIL is 24.3%; the pre-registered bar asks for a ratio of at most 0.75, so V11 fails by a small margin while the corrected model beats NeuralFoil on the same points. StratoGlide's XFOIL validation failed its own 15% bar at Re 100k on E387 with Ncrit 5 (its pre-registered rule); FlightLoop runs Ncrit 9 and 11 at matched UIUC points, so the two numbers are not the same metric.</p>
+<h2>5. Module D: supersonic wedge and diamond (CFD vs textbook theory)</h2>
+<p>Verification of the Euler solver setup only. SU2 Euler (Roe, Venkatakrishnan limiter), three nested grids, oblique-shock and shock-expansion theory from <code>flightloop/compressible/theory.py</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Quantity</th>
+<th>Coarse</th>
+<th>Medium</th>
+<th>Fine</th>
+<th>Theory</th>
+<th>Fine error</th>
+<th>States (c/m/f)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wedge M2, 10 deg</td>
+<td>shock angle (deg)</td>
+<td>39.324</td>
+<td>39.321</td>
+<td>39.318</td>
+<td>39.314</td>
+<td>+0.004 deg</td>
+<td>converged-cauchy/converged-residual/converged-cauchy</td>
+</tr>
+<tr>
+<td>wedge M2, 10 deg</td>
+<td>p2/p1</td>
+<td>1.7064</td>
+<td>1.7065</td>
+<td>1.7065</td>
+<td>1.7066</td>
+<td>-0.002%</td>
+<td></td>
+</tr>
+<tr>
+<td>wedge M3, 10 deg</td>
+<td>shock angle (deg)</td>
+<td>27.425</td>
+<td>27.406</td>
+<td>27.395</td>
+<td>27.383</td>
+<td>+0.012 deg</td>
+<td>converged-residual/converged-residual/converged-residual</td>
+</tr>
+<tr>
+<td>wedge M3, 10 deg</td>
+<td>p2/p1</td>
+<td>2.0540</td>
+<td>2.0542</td>
+<td>2.0544</td>
+<td>2.0545</td>
+<td>-0.005%</td>
+<td></td>
+</tr>
+<tr>
+<td>diamond M2_a0</td>
+<td>Cd</td>
+<td>0.005278</td>
+<td>0.005520</td>
+<td>0.005640</td>
+<td>0.005780</td>
+<td>-2.41%</td>
+<td>converged-residual/converged-residual/converged-residual</td>
+</tr>
+<tr>
+<td>diamond M2_a2</td>
+<td>Cl</td>
+<td>0.07819</td>
+<td>0.07959</td>
+<td>0.08032</td>
+<td>0.08100</td>
+<td>-0.84%</td>
+<td></td>
+</tr>
+<tr>
+<td>diamond M2_a2</td>
+<td>Cd</td>
+<td>0.008043</td>
+<td>0.008325</td>
+<td>0.008469</td>
+<td>0.008629</td>
+<td>-1.85%</td>
+<td>converged-residual/converged-cauchy/converged-cauchy</td>
+</tr>
+<tr>
+<td>diamond M2_a4</td>
+<td>Cl</td>
+<td>0.15665</td>
+<td>0.15940</td>
+<td>0.16089</td>
+<td>0.16225</td>
+<td>-0.84%</td>
+<td></td>
+</tr>
+<tr>
+<td>diamond M2_a4</td>
+<td>Cd</td>
+<td>0.016307</td>
+<td>0.016744</td>
+<td>0.016974</td>
+<td>0.017207</td>
+<td>-1.35%</td>
+<td>converged-cauchy/converged-cauchy/converged-cauchy</td>
+</tr>
+<tr>
+<td>diamond M3_a0</td>
+<td>Cd</td>
+<td>0.003400</td>
+<td>0.003466</td>
+<td>0.003500</td>
+<td>0.003546</td>
+<td>-1.29%</td>
+<td>converged-cauchy/converged-residual/converged-cauchy</td>
+</tr>
+<tr>
+<td>diamond M3_a2</td>
+<td>Cl</td>
+<td>0.04709</td>
+<td>0.04846</td>
+<td>0.04915</td>
+<td>0.04986</td>
+<td>-1.44%</td>
+<td></td>
+</tr>
+<tr>
+<td>diamond M3_a2</td>
+<td>Cd</td>
+<td>0.005084</td>
+<td>0.005188</td>
+<td>0.005242</td>
+<td>0.005308</td>
+<td>-1.24%</td>
+<td>converged-residual/converged-residual/converged-residual</td>
+</tr>
+<tr>
+<td>diamond M3_a4</td>
+<td>Cl</td>
+<td>0.09449</td>
+<td>0.09722</td>
+<td>0.09860</td>
+<td>0.10006</td>
+<td>-1.45%</td>
+<td></td>
+</tr>
+<tr>
+<td>diamond M3_a4</td>
+<td>Cd</td>
+<td>0.010114</td>
+<td>0.010360</td>
+<td>0.010486</td>
+<td>0.010626</td>
+<td>-1.33%</td>
+<td>converged-residual/converged-residual/converged-cauchy</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Module E: system identification</h2>
+<p><strong>Synthetic (labelled synthetic).</strong> 20 seeds of the StratoGlide design model in FlightLoop's 6-DOF with MIL-F-8785C light turbulence and sensor noise; glide force method for CD0 and k, equation error for the longitudinal derivatives, output error reported alongside.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Median abs. error, equation error / force method</th>
+<th>Median abs. error, output error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CD0</td>
+<td>1.45%</td>
+<td>n/a (glide method only)</td>
+</tr>
+<tr>
+<td>k</td>
+<td>1.88%</td>
+<td>n/a (glide method only)</td>
+</tr>
+<tr>
+<td>CLa</td>
+<td>1.96%</td>
+<td>3.16%</td>
+</tr>
+<tr>
+<td>Cma</td>
+<td>2.00%</td>
+<td>4.87%</td>
+</tr>
+<tr>
+<td>Cmde</td>
+<td>2.07%</td>
+<td>9.15%</td>
+</tr>
+<tr>
+<td>Cmq</td>
+<td>3.42%</td>
+<td>17.08%</td>
+</tr>
+</tbody>
+</table>
+<p>95% CI coverage over seeds: CD0 25%, CLa 60%, Cma 60% (V16 fails; the per-flight pitot scale error is not in the regression standard errors). Findings: the energy-method CD0 is biased by vertical gusts (16.4% with gusts, 3.0% calm); alpha estimated without a vane biases CLa by -98%; at 18 km the glide CD0 median error is 0.50%.</p>
+<p><strong>CMU ALFA (public experimental).</strong> Energy-method glide polar on post-engine-failure windows of 8 flights (21 windows), bootstrap over flights.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Flight</th>
+<th>95% CI</th>
+<th>AVL (approximate geometry)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CD0 (airframe + stopped prop)</td>
+<td>0.0212</td>
+<td>-0.0222 to 0.0478</td>
+<td>n/a (inviscid)</td>
+</tr>
+<tr>
+<td>k</td>
+<td>0.159</td>
+<td>0.112 to 0.213</td>
+<td>0.0574</td>
+</tr>
+<tr>
+<td>span efficiency e</td>
+<td>0.353</td>
+<td>from k</td>
+<td>0.9795</td>
+</tr>
+</tbody>
+</table>
+<p>The flight k includes every lift-dependent drag term (profile drag growth, trim, prop wake), not only induced drag, and mass and wing area are retailer figures; the CD0 interval spans zero. Parsers: 1 public PX4 ULog and 3 ArduPilot .bin files reach the full canonical schema.</p>
+<h2>7. Module F: next-iteration engine and correlation report (synthetic)</h2>
+<p><code>stubs/inject.py</code> draws a discrepancy (CD0 growth, aft CG, elevator effectiveness), applies it to the design model and seals it; the engine sees only the flight-1 logs and the design model (its file access is audited), identifies, applies first-order design rules and predicts flight 2.</p>
+<table>
+<thead>
+<tr>
+<th>Metric over 6 blind seeds</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CD0 delta error, max</td>
+<td>2.89 pp</td>
+</tr>
+<tr>
+<td>static margin delta error, max</td>
+<td>0.17% MAC</td>
+</tr>
+<tr>
+<td>next-flight sink error reduction, median</td>
+<td>3.9%</td>
+</tr>
+<tr>
+<td>next-flight trim error reduction, median</td>
+<td>51.1%</td>
+</tr>
+<tr>
+<td>secondary (post hoc): air-relative sink, all glides / inside envelope</td>
+<td>55.5% / 80.3%</td>
+</tr>
+<tr>
+<td>secondary (post hoc): trim inside envelope</td>
+<td>97.0%</td>
+</tr>
+</tbody>
+</table>
+<p>The recovery parts of V18 pass; the next-flight prediction part fails on the pre-registered metric (HONEST_LOG 14 and the V18 entry give the cause: inertial sink carries the air-mass vertical velocity, and the two slowest glides fly beyond the linear envelope).</p>
+<p><strong>Correlation against StratoGlide's test cards.</strong> 25 cards, 12 measurable from the synthetic logs, 5 inside StratoGlide's band.</p>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>Quantity</th>
+<th>Unit</th>
+<th>StratoGlide prediction</th>
+<th>Band</th>
+<th>FlightLoop design recompute</th>
+<th>Synthetic measured</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FT-1</td>
+<td>stall EAS</td>
+<td>m/s</td>
+<td>11</td>
+<td>10.45 to 11.55</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (no stall test in the synthetic schedule; the identification envelope stops at alpha 9.6 deg)</td>
+</tr>
+<tr>
+<td>FT-1</td>
+<td>V_bestLD EAS (SL)</td>
+<td>m/s</td>
+<td>14.13</td>
+<td>12.72 to 15.54</td>
+<td>12.04</td>
+<td>11.31</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-1</td>
+<td>L/D max (SL)</td>
+<td>-</td>
+<td>11.9</td>
+<td>10.71 to 13.09</td>
+<td>9.875</td>
+<td>8.607</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-1</td>
+<td>min sink rate (SL)</td>
+<td>m/s</td>
+<td>1.08</td>
+<td>0.9722 to 1.188</td>
+<td>1.07</td>
+<td>1.153</td>
+<td>inside band</td>
+</tr>
+<tr>
+<td>FT-1</td>
+<td>trim elevator at loiter CL (SL)</td>
+<td>deg</td>
+<td>-1.705</td>
+<td>-2.132 to -1.279</td>
+<td>-1.617</td>
+<td>-0.5763</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-1</td>
+<td>static margin</td>
+<td>%MAC</td>
+<td>11.49</td>
+<td>8.491 to 14.49</td>
+<td>11.49</td>
+<td>7.49</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-2</td>
+<td>electrical power at SL cruise (loiter CL)</td>
+<td>W</td>
+<td>90.43</td>
+<td>81.38 to 99.47</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (blind flights are unpowered)</td>
+</tr>
+<tr>
+<td>FT-2</td>
+<td>climb rate at full power (SL)</td>
+<td>m/s</td>
+<td>11.03</td>
+<td>9.931 to 12.14</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (blind flights are unpowered)</td>
+</tr>
+<tr>
+<td>FT-2</td>
+<td>RPM at SL cruise</td>
+<td>rpm</td>
+<td>1983</td>
+<td>1785 to 2181</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (blind flights are unpowered)</td>
+</tr>
+<tr>
+<td>FT-3</td>
+<td>trim gradient d(delta_e)/dCL</td>
+<td>deg/CL</td>
+<td>-5.065</td>
+<td>-6.331 to -3.799</td>
+<td>-5.065</td>
+<td>-3.744</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-3</td>
+<td>neutral point x (from wing root LE)</td>
+<td>m</td>
+<td>0.1584</td>
+<td>0.1505 to 0.1664</td>
+<td>0.1584</td>
+<td>0.1474</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>short-period natural frequency (SL)</td>
+<td>rad/s</td>
+<td>7.926</td>
+<td>6.341 to 9.511</td>
+<td>8.394</td>
+<td>7.305</td>
+<td>inside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>short-period damping ratio (SL)</td>
+<td>-</td>
+<td>0.6763</td>
+<td>0.5411 to 0.8116</td>
+<td>0.6618</td>
+<td>0.7244</td>
+<td>inside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>Cm_alpha</td>
+<td>1/rad</td>
+<td>-0.5462</td>
+<td>-0.6828 to -0.4097</td>
+<td>-0.5462</td>
+<td>-0.3493</td>
+<td>outside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>Cm_q</td>
+<td>1/rad</td>
+<td>-8.921</td>
+<td>-11.15 to -6.691</td>
+<td>-8.921</td>
+<td>-8.299</td>
+<td>inside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>Cm_delta_e</td>
+<td>1/deg</td>
+<td>-0.02269</td>
+<td>-0.02836 to -0.01702</td>
+<td>-0.02269</td>
+<td>-0.01962</td>
+<td>inside band</td>
+</tr>
+<tr>
+<td>FT-4</td>
+<td>Cl_p</td>
+<td>1/rad</td>
+<td>-0.4384</td>
+<td>-0.548 to -0.3288</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (no roll excitation flown)</td>
+</tr>
+<tr>
+<td>FT-5</td>
+<td>altitude lost in pull-out</td>
+<td>m</td>
+<td>40.45</td>
+<td>27.47 to 69.28</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-5</td>
+<td>peak load factor</td>
+<td>g</td>
+<td>2.003</td>
+<td>1.777 to 2.302</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-5</td>
+<td>peak EAS</td>
+<td>m/s</td>
+<td>21.39</td>
+<td>18.49 to 23.86</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-5</td>
+<td>time to recover</td>
+<td>s</td>
+<td>11.27</td>
+<td>7.307 to 19.66</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-6</td>
+<td>altitude lost in pull-out</td>
+<td>m</td>
+<td>90.17</td>
+<td>59.72 to 170.8</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-6</td>
+<td>peak load factor</td>
+<td>g</td>
+<td>2.265</td>
+<td>2.101 to 2.521</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-6</td>
+<td>peak EAS</td>
+<td>m/s</td>
+<td>21.03</td>
+<td>18.14 to 23.83</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+<tr>
+<td>FT-6</td>
+<td>time to recover</td>
+<td>s</td>
+<td>15.81</td>
+<td>9.957 to 30.62</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a (pull-out cards FT-5/FT-6 not flown)</td>
+</tr>
+</tbody>
+</table>
+<h2>8. Failed bars and deviations</h2>
+<ul>
+<li><strong>V05 FAIL (GCI, SST-LM).</strong> E387 Re 200k alpha 4: SA passes the bar on its own (Cl GCI 0.32%, Cd GCI 1.00%, observed p 1.97 for both, monotone). SST-LM coarse and medium ended <code>unsteady</code> at the 30000-iteration cap (Cd half-amplitude over the last 2000 iterations 0.00047 on medium) while fine converged (Cl 0.79185, Cd 0.014036 at 16328 iterations); with unsteady inputs Cl is monotone with p 0.81 (GCI 1.51%; p is inside [0.5, 3] but the inputs are not converged) and Cd is oscillatory, so no GCI is defined. Not fixed by changing iteration caps, Tu or model constants; URANS on the medium grid is deferred (GAPS.md).</li>
+<li><strong>V06 FAIL (SST-LM vs TM-4062 at alpha 4).</strong> Medium grid state <code>unsteady</code>, so the run is outside error statistics by the pre-registered rule. Mean over the last 2000 iterations: Cl +0.3%, Cd +4.4% (within the 5% and 20% bars), RMS dCp upper 0.078 (bar 0.05). Largest residuals at x/c 0.60 (+0.072, bubble plateau end) and 0.70 (-0.042, reattachment recovery).</li>
+<li><strong>V07 PASS, barely.</strong> SA (fully turbulent) Cd +25.1% vs TM-4062 0.0133 at alpha 4 (bar &gt; +25%); alpha 0 +30.8%, alpha 8 +37.8%.</li>
+<li>
+<p><strong>V08 FAIL (bubble).</strong> Alpha 4: SST-LM separation x_s 0.413c vs oil flow 0.40c (+0.013c), reattachment x_r 0.641c vs 0.62c (+0.021c), inside the 0.05c/0.08c bars, but the run is <code>unsteady</code> so it does not count. Alpha 0: no separation found in the CFD (oil flow x_s 0.48c, x_r 0.74c). Alpha 8: TM-4062 reports natural transition at 0.32c (no bubble number to score); CFD shows a short leading-edge separation at 0.004c to 0.010c.</p>
+</li>
+<li>
+<p><strong>V16 FAIL (CI calibration).</strong> Run <code>sysid-synth20-20261118-120733-030dcbe</code>, 20 seeds: the pre-registered 95% CIs cover truth in CD0 25%, CLa 60%, Cma 60% of seeds (bar 80 to 100%). Cause: the window-regression SE (CD0) and the Morelli-Klein SE (CLa, Cma) contain only random error; every flight also carries a pitot scale error N(1, 0.01) that scales all coefficients by about 2x the scale error, which is not in either SE. The bar is not changed. Secondary, post hoc: adding the 2 x 1% calibration term in quadrature gives CD0 100%, CLa 95%, Cma 85% (<code>coverage_with_calibration_pct</code>); the block-bootstrap CI gives CLa 80%, Cma 75%, Cmde 75%. V15 passes on the same run (median |error| CD0 1.45%, k 1.88%, CLa 1.96%, Cma 2.00%, Cmde 2.07%, Cmq 3.42%).</p>
+</li>
+<li><strong>No-vane alpha is unusable in turbulence (finding, not a bar).</strong> Alpha from EKF attitude and GPS velocity misses gust-induced alpha; equation-error CLa median bias -98%, Cma +97% on the same flights. The energy-method glide polar is biased by vertical gusts: CD0 16.4% and k 74.5% median error with gusts, 3.0% and 9.8% with vertical gusts off.</li>
+<li>
+<p><strong>V11 FAIL by 0.007.</strong> Run <code>mf-lofo-20261118-121208-030dcbe</code>, leave-one-family-out over 18 families, 1356 identical (airfoil, Re, Cl) points on 38 airfoils: corrected Cd MAPE 9.54% vs raw XFOIL Ncrit 9 12.59% (ratio 0.757, bar &lt;= 0.75) and NeuralFoil 0.3.3 xxlarge 10.71% (beats NeuralFoil, second clause passes). Constant-bias baseline 12.51%. Held-out test airfoils (E387, SD7037 and family members, model gp_nu2.5 chosen by inner GroupKFold): corrected 9.76% vs XFOIL 11.09% vs NeuralFoil 14.56%. On E387 at Re 100k this XFOIL setup is -10.4% in Cd (corrected -6.8%), not the 38.9% CD MAPE StratoGlide reported: StratoGlide ran XFOIL at Ncrit 5 (its pre-registered rule) over its own CL sweep (stratoglide HONEST_LOG, P2 validation), FlightLoop runs Ncrit 9 and 11 at matched UIUC points (signed error at points, not MAPE over a sweep). The bar is not changed and the model family is not re-searched.</p>
+</li>
+<li>
+<p><strong>V18 FAIL (next-flight error reduction).</strong> Run <code>loop-blind6-20261118-182042-0402430</code>, 6 blind seeds, engine never opened SEALED_truth.json. Recovery passes: max |CD0 delta error| 2.89 pp (bar 5), max |SM delta error| 0.17% MAC (bar 1). Prediction bars fail: median sink-rate error reduction 3.9%, trim-elevator 51.1% (bar 70% each). Cause: flight-2 inertial sink is a 15 s mean of vd that carries the air-mass vertical velocity, and the 13.5 and 14.5 m/s glides fly beyond the 9 deg linear envelope where no linear model predicts trim. Secondary, post hoc (HONEST_LOG 14): air-relative sink over all glides 55.5%, air-relative sink inside the envelope 80.3%, trim inside the envelope 97.0%. The bar and the primary metric are not changed.</p>
+</li>
+</ul>
+<p>All deviations from the plan, each with its reason and timing relative to results, are numbered in <code>HONEST_LOG.md</code>.</p>
+<h2>9. Deferred</h2>
+<h1>GAPS (deferred, with reason)</h1>
+<ul>
+<li>3D CFD of a full aircraft, LES/DNS, URANS bubble-bursting, optimizer: out of scope per plan section 0.</li>
+<li>Tripped, flapped and Gurney-flap UIUC configurations: excluded from phase 1 (plan P1.2).</li>
+<li>TM-4062 lower-surface Cp: not transcribed (V06 uses the upper surface only).</li>
+<li>OpenFOAM kOmegaSSTLM cross-check of E387: not run (plan order puts it after site/; compute went to the cut-line SST-LM grids, which ran to the 30,000-iteration cap).</li>
+<li>SD7037 SU2 at Re 60k (SA and SST-LM, alpha 2 and 4): deferred, last in plan order; the low-order tools and UIUC data at Re 60.5k are in DISAGREEMENT.md.</li>
+<li>SD7037 SU2 at Re 80k and alpha sweeps for Cl_max: not in the compute budget (n/a rows in DISAGREEMENT.md).</li>
+<li>URANS for the E387 SST-LM bubble: the coarse and medium grids end unsteady; a time-accurate run is needed to score V05, V06, V08 on them.</li>
+<li>E387 Tu sweep (0.1, 0.2%), Re 100k E387 CFD, SST and SA-BC at alpha 0 and 8: queued as <code>fullA_core</code> in scripts/cfd_queue.py, not run. SST and SA-BC at alpha 4 run as <code>fullA_min</code> if they finish before the final build.</li>
+<li>Cl correction in Module C (Cd only), lift-curve correction deferred.</li>
+<li>ArduPilot SITL .bin generation: replaced by 3 public ArduPlane .bin files from the CMU ALFA dataflash archive (V14).</li>
+<li>PX4 public logs: 1 of 3 downloaded ULogs carries airspeed; the other two parse but have no TAS (parse_report.json).</li>
+<li>V16 CI calibration: the per-flight pitot scale error is not in the regression SE; a calibration-aware CI is reported as secondary only.</li>
+<li>Wrap-up stops: E387 SA-BC alpha 4 (stopped at about 8,200 of 15,000 iterations) and SD7037 Re 100k SST-LM alpha 2 (about 20,400 of 30,000) were stopped by hand at the final wrap-up; both are <code>incomplete</code>, listed in the registry, and excluded from every statistic. E387 SST (fully turbulent) alpha 4 converged and is in the registry.</li>
+</ul>
+<h2>10. Compute and reproduction</h2>
+<p>43.8 core-hours measured from the run folders (35.8 in SU2 over 42 runs including superseded ones), 0 cloud hours; MacBook Air M4, 16 GB. Environment pins: <code>requirements.lock</code>, <code>ENV.md</code>.</p>
+<pre><code class="language-bash">.venv/bin/python verify.py
+.venv/bin/python scripts/build_site.py &amp;&amp; .venv/bin/python scripts/build_docs.py
+.venv/bin/python scripts/check_numbers.py
+</code></pre></body></html>

@@ -1,0 +1,12 @@
+{
+ "e387|200000|4|SST_LM|medium|0.06": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+ "e387|200000|4|SA|medium|0.06": "cfd-e387-re200k-a4-SA-medium-20261118-111325-89ecad3",
+ "e387|200000|0|SST_LM|medium|0.06": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+ "e387|200000|0|SA|medium|0.06": "cfd-e387-re200k-a0-SA-medium-20261118-111327-89ecad3",
+ "e387|200000|8|SST_LM|medium|0.06": "cfd-e387-re200k-a8-SST_LM-medium-20261118-111328-89ecad3",
+ "e387|200000|8|SA|medium|0.06": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+ "e387|200000|4|SST_LM|coarse|0.06": "cfd-e387-re200k-a4-SST_LM-coarse-20261118-111331-89ecad3",
+ "e387|200000|4|SST_LM|fine|0.06": "cfd-e387-re200k-a4-SST_LM-fine-20261118-111332-89ecad3",
+ "e387|200000|4|SA|coarse|0.06": "cfd-e387-re200k-a4-SA-coarse-20261118-111333-89ecad3",
+ "e387|200000|4|SA|fine|0.06": "cfd-e387-re200k-a4-SA-fine-20261118-111334-89ecad3"
+}

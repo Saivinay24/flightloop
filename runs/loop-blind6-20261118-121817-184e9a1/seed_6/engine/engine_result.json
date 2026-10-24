@@ -1,0 +1,121 @@
+{
+ "identified": {
+  "CD0": 0.061664981446890074,
+  "k": 0.05047907596158525,
+  "se_CD0": 0.005756403517398455,
+  "CL0": 0.08540391879793299,
+  "CLa": 6.437375628065724,
+  "Cm0": 0.0036660217184358497,
+  "Cma": -0.047404534116404315,
+  "Cmq": 0.07116841236176599,
+  "Cmde": -0.06724795563293727,
+  "CLde": 6.943274991298794,
+  "se_Cma": 0.005774014770895911,
+  "se_CLa": 0.06754611844379374,
+  "n_flights": 1
+ },
+ "discrepancy": {
+  "CD0": {
+   "design": 0.0481780810559003,
+   "flight": 0.061664981446890074,
+   "diff_pct": 27.993851343603993
+  },
+  "k": {
+   "design": 0.0532166029881813,
+   "flight": 0.05047907596158525,
+   "diff_pct": -5.144122083861724
+  },
+  "CL0": {
+   "design": 0.1916308989197769,
+   "flight": 0.08540391879793299,
+   "diff_pct": -55.43311685153346
+  },
+  "CLa": {
+   "design": 4.753828,
+   "flight": 6.437375628065724,
+   "diff_pct": 35.41456754568579
+  },
+  "Cm0": {
+   "design": 0.017040976088028903,
+   "flight": 0.0036660217184358497,
+   "diff_pct": -78.48702034731924
+  },
+  "Cma": {
+   "design": -0.546234,
+   "flight": -0.047404534116404315,
+   "diff_pct": -91.32157022147938
+  },
+  "Cmq": {
+   "design": -8.920773,
+   "flight": 0.07116841236176599,
+   "diff_pct": -100.79778302128936
+  },
+  "Cmde": {
+   "design": -1.2998693498132985,
+   "flight": -0.06724795563293727,
+   "diff_pct": -94.82656040450557
+  }
+ },
+ "rules": [
+  {
+   "rule": "R1 CD0",
+   "discrepancy": "CD0 +28.0% vs design",
+   "value_pct": 27.993851343603993,
+   "delta": {
+    "CD0_new": 0.061664981446890074,
+    "V_best_glide_ms": 11.790304071014138,
+    "V_min_sink_ms": 8.95869377783979,
+    "LD_max": 8.961794964970542,
+    "LD_max_design": 9.874649313467403
+   },
+   "formula": "V_bg = sqrt(2W/(rho S)) (k/CD0)^(1/4); V_ms = sqrt(2W/(rho S)) (k/(3 CD0))^(1/4); (L/D)max = 1/(2 sqrt(k CD0))",
+   "attribution_note": "excrescence/interference and profile drag at the flight Re; LSB penalty if flight Re < design Re"
+  },
+  {
+   "rule": "R2 static margin",
+   "discrepancy": "SM -10.75% MAC vs design (SM = -Cma/CLa)",
+   "value_mac": -0.10754007762929148,
+   "delta": {
+    "cg_forward_m": 0.02960645509666933,
+    "cg_forward_mac": 0.10754007762929148,
+    "tail_volume_increase": 0.3013725043691076,
+    "dXnp_dVh": 0.356834402841147
+   },
+   "formula": "move CG forward by -dSM x MAC (first-order: Xnp fixed); or raise V_h by -dSM / (dXnp/dV_h), dXnp/dV_h = eta_t (a_t/a)(1 - d eps/d alpha)",
+   "attribution_note": "Cma scales with assumed Iyy; a 10% Iyy error moves identified SM by 10% of SM"
+  },
+  {
+   "rule": "R3 k (span efficiency)",
+   "discrepancy": "k -5.1% vs design",
+   "value_pct": -5.144122083861724,
+   "delta": {
+    "note": "span-load / twist review; trim-drag estimate at the measured CG"
+   },
+   "formula": "k = 1/(pi e AR)"
+  },
+  {
+   "rule": "R4 trim elevator offset",
+   "discrepancy": "Cm0 -0.0134",
+   "value": -0.013374954369593054,
+   "delta": {
+    "elevator_equiv_deg": -11.395564807064586,
+    "tail_incidence_change_deg": -5.697782403532293
+   },
+   "formula": "d i_t = tau_e x (-dCm0 / Cmde), tau_e = 0.5 (elevator effectiveness, assumed)"
+  },
+  {
+   "rule": "R5 prop re-match",
+   "discrepancy": "n/a (blind demo flights are unpowered)",
+   "delta": {},
+   "formula": "T = D + W sin(gamma) + m dV/dt, eta = T V / (volt x curr)"
+  }
+ ],
+ "tail_assumptions": {
+  "eta_t": 0.9,
+  "a_t": 3.8030624000000004,
+  "deda": 0.5043966627206292
+ },
+ "cd0_delta_pct": 27.993851343603993,
+ "sm_delta_mac": -0.10754007762929148,
+ "first_order": true
+}

@@ -1,0 +1,15 @@
+{
+ "airfoil": "e387",
+ "re": 200000,
+ "alpha": 4,
+ "model": "SA_BC",
+ "level": "medium",
+ "tu_pct": 0.06,
+ "iters": 15000,
+ "tag_tu": false,
+ "run_id": "cfd-e387-re200k-a4-SA_BC-medium-20261118-214549-85e1418",
+ "mesh": "cfd/meshes/e387/e387_medium.su2",
+ "mesh_sha256_16": "0098d2b8ce9ace19",
+ "git_sha": "85e1418",
+ "su2_version": "v8.6.0"
+}

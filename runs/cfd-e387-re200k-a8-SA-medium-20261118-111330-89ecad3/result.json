@@ -1,0 +1,57 @@
+{
+ "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+ "case": {
+  "airfoil": "e387",
+  "re": 200000,
+  "alpha": 8,
+  "model": "SA",
+  "level": "medium",
+  "tu_pct": 0.06,
+  "iters": 12000,
+  "tag_tu": false,
+  "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+  "mesh": "cfd/meshes/e387/e387_medium.su2",
+  "mesh_sha256_16": "0098d2b8ce9ace19",
+  "git_sha": "ba178d0",
+  "su2_version": "v8.6.0"
+ },
+ "status": {
+  "iters": 2604,
+  "rms_p_drop_orders": 6.978361349,
+  "cl_maxreldev_1000": 9.939553866361699e-05,
+  "cd_maxreldev_1000": 0.0002572038400769253,
+  "state": "converged",
+  "criterion": "residual",
+  "cl": 1.167949805,
+  "cd": 0.0240275184,
+  "cmz_su2": 0.07145321413
+ },
+ "yplus_max": 0.649531900882721,
+ "lsb_upper": {
+  "x_s": 0.9569728872780539,
+  "x_r": null,
+  "bubble": true
+ },
+ "cp_integral": {
+  "cn": 1.1581227269939776,
+  "cc": -0.14769053647983435,
+  "cm_c4_noseup": -0.07231735301884043
+ },
+ "breakdown": {
+  "CL": {
+   "total": 1.16795,
+   "pressure": 1.167346,
+   "friction": 0.000604
+  },
+  "CD": {
+   "total": 0.024028,
+   "pressure": 0.01491,
+   "friction": 0.009118
+  },
+  "CMz": {
+   "total": 0.071453,
+   "pressure": 0.072226,
+   "friction": -0.000772
+  }
+ }
+}

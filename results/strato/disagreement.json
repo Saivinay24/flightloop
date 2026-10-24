@@ -1,0 +1,310 @@
+{
+ "rows": [
+  {
+   "re": 60000,
+   "tool": "SU2 SST-LM",
+   "cd_err": "n/a (run not finished)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "n/a"
+  },
+  {
+   "re": 60000,
+   "tool": "SU2 SA",
+   "cd_err": "n/a (run not finished)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "n/a"
+  },
+  {
+   "re": 60000,
+   "tool": "XFOIL Ncrit 9",
+   "cd_err": "10.8%",
+   "cd_err_signed_mean": 5.888972114275988,
+   "clmax": "1.255",
+   "re_tool": 60500.0,
+   "bubble": "x_tr upper 0.72c at CL 0.7"
+  },
+  {
+   "re": 60000,
+   "tool": "XFOIL Ncrit 11",
+   "cd_err": "40.0%",
+   "cd_err_signed_mean": 39.984887113693425,
+   "clmax": "1.211",
+   "re_tool": 60500.0,
+   "bubble": "x_tr upper 0.70c at CL 0.7"
+  },
+  {
+   "re": 60000,
+   "tool": "NeuralFoil xxlarge",
+   "cd_err": "7.7%",
+   "cd_err_signed_mean": -1.163962644360702,
+   "clmax": "1.314",
+   "re_tool": 60500.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 60000,
+   "tool": "XFOIL corrected (Module C)",
+   "cd_err": "4.2%",
+   "cd_err_signed_mean": -4.234282243223625,
+   "clmax": "n/a (correction is for Cd only)",
+   "re_tool": 60500.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 60000,
+   "tool": "UIUC experiment",
+   "cd_err": "reference",
+   "clmax": "1.221",
+   "bubble": "n/a (no flow visualisation in LSAT vol. 3 for SD7037)"
+  },
+  {
+   "re": 80000,
+   "tool": "SU2 SST-LM",
+   "cd_err": "n/a (run not in compute budget)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "n/a"
+  },
+  {
+   "re": 80000,
+   "tool": "SU2 SA",
+   "cd_err": "n/a (run not in compute budget)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "n/a"
+  },
+  {
+   "re": 80000,
+   "tool": "XFOIL Ncrit 9",
+   "cd_err": "n/a (no experiment)",
+   "cd_err_signed_mean": null,
+   "clmax": "1.282",
+   "re_tool": 80000.0,
+   "bubble": "x_tr upper 0.74c at CL 0.7"
+  },
+  {
+   "re": 80000,
+   "tool": "XFOIL Ncrit 11",
+   "cd_err": "n/a (no experiment)",
+   "cd_err_signed_mean": null,
+   "clmax": "1.270",
+   "re_tool": 80000.0,
+   "bubble": "x_tr upper 0.75c at CL 0.7"
+  },
+  {
+   "re": 80000,
+   "tool": "NeuralFoil xxlarge",
+   "cd_err": "n/a (no experiment)",
+   "cd_err_signed_mean": null,
+   "clmax": "1.335",
+   "re_tool": 80000.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 80000,
+   "tool": "XFOIL corrected (Module C)",
+   "cd_err": "n/a (no experiment)",
+   "cd_err_signed_mean": null,
+   "clmax": "n/a (correction is for Cd only)",
+   "re_tool": 80000.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 80000,
+   "tool": "UIUC experiment",
+   "cd_err": "n/a (no experiment at this Re)",
+   "clmax": "n/a (no experiment)",
+   "bubble": "n/a (no flow visualisation in LSAT vol. 3 for SD7037)"
+  },
+  {
+   "re": 100000,
+   "tool": "SU2 SST-LM",
+   "cd_err": "39.2% (at CL 0.68; unsteady)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "x_s 0.28c, x_r none at CL 0.68"
+  },
+  {
+   "re": 100000,
+   "tool": "SU2 SA",
+   "cd_err": "7.6% (at CL 0.53, 0.74; converged)",
+   "clmax": "n/a (alpha sweep not run)",
+   "bubble": "no bubble in CFD"
+  },
+  {
+   "re": 100000,
+   "tool": "XFOIL Ncrit 9",
+   "cd_err": "8.8%",
+   "cd_err_signed_mean": -8.762377599557272,
+   "clmax": "1.285",
+   "re_tool": 101400.0,
+   "bubble": "x_tr upper 0.75c at CL 0.7"
+  },
+  {
+   "re": 100000,
+   "tool": "XFOIL Ncrit 11",
+   "cd_err": "n/a (XFOIL did not converge)",
+   "cd_err_signed_mean": null,
+   "clmax": "n/a (XFOIL halted: 4 non-converged points from alpha 0)",
+   "re_tool": 101400.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 100000,
+   "tool": "NeuralFoil xxlarge",
+   "cd_err": "11.0%",
+   "cd_err_signed_mean": -11.02348600424055,
+   "clmax": "1.342",
+   "re_tool": 101400.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 100000,
+   "tool": "XFOIL corrected (Module C)",
+   "cd_err": "1.1%",
+   "cd_err_signed_mean": -1.0671659798809814,
+   "clmax": "n/a (correction is for Cd only)",
+   "re_tool": 101400.0,
+   "bubble": "n/a (no transition output)"
+  },
+  {
+   "re": 100000,
+   "tool": "UIUC experiment",
+   "cd_err": "reference",
+   "clmax": "1.245",
+   "bubble": "n/a (no flow visualisation in LSAT vol. 3 for SD7037)"
+  }
+ ],
+ "tools": {
+  "60000": {
+   "re_tool": 60500.0,
+   "xfoil_nonphysical_points": {
+    "n9": 0,
+    "n11": 0
+   },
+   "cd_at_cl": {
+    "xfoil_n9": {
+     "0.5": 0.02749551479289941,
+     "0.6": 0.026340672268907565,
+     "0.7": 0.025139702602230484,
+     "0.8": 0.023794652567975833
+    },
+    "xfoil_n11": {
+     "0.5": 0.03589320685434516,
+     "0.6": 0.03562141052631579,
+     "0.7": 0.03368584085315833,
+     "0.8": 0.03069753403933434
+    },
+    "neuralfoil": {
+     "0.5": 0.024563504782246542,
+     "0.6": 0.02463266645379971,
+     "0.7": 0.02392454279469992,
+     "0.8": 0.022991952894600636
+    },
+    "xfoil_corrected": {
+     "0.5": 0.021642101512690023,
+     "0.6": 0.023211687755656987,
+     "0.7": 0.02445191526456915,
+     "0.8": 0.02423049910559692
+    }
+   },
+   "clmax": {
+    "xfoil_n9": 1.2552,
+    "xfoil_n11": 1.211,
+    "neuralfoil": 1.3135516799487996
+   },
+   "xtr_top_at_cl0.7": {
+    "xfoil_n9": 0.7233360594795539,
+    "xfoil_n11": 0.6984301066447908
+   },
+   "nf_conf_median": 0.9834935162475743
+  },
+  "80000": {
+   "re_tool": 80000.0,
+   "xfoil_nonphysical_points": {
+    "n9": 0,
+    "n11": 0
+   },
+   "cd_at_cl": {
+    "xfoil_n9": {
+     "0.5": 0.020351545454545455,
+     "0.6": 0.019394587155963303,
+     "0.7": 0.018454305364511692,
+     "0.8": 0.01799152108433735
+    },
+    "xfoil_n11": {
+     "0.5": 0.025717264150943397,
+     "0.6": 0.024162009132420094,
+     "0.7": 0.02230496644295302,
+     "0.8": 0.020875019815059445
+    },
+    "neuralfoil": {
+     "0.5": 0.01887938922437711,
+     "0.6": 0.018411164847610115,
+     "0.7": 0.017914573231944467,
+     "0.8": 0.017878759940405536
+    },
+    "xfoil_corrected": {
+     "0.5": 0.018926146851415644,
+     "0.6": 0.019159383698379738,
+     "0.7": 0.01977857724148771,
+     "0.8": 0.019931585267387305
+    }
+   },
+   "clmax": {
+    "xfoil_n9": 1.2821,
+    "xfoil_n11": 1.27,
+    "neuralfoil": 1.3350425926636282
+   },
+   "xtr_top_at_cl0.7": {
+    "xfoil_n9": 0.7419778541953234,
+    "xfoil_n11": 0.7526675615212528
+   },
+   "nf_conf_median": 0.9806207024003647
+  },
+  "100000": {
+   "re_tool": 101400.0,
+   "xfoil_nonphysical_points": {
+    "n9": 0,
+    "n11": 0
+   },
+   "cd_at_cl": {
+    "xfoil_n9": {
+     "0.5": 0.016215363636363635,
+     "0.6": 0.015415995423340961,
+     "0.7": 0.01481041958041958,
+     "0.8": 0.014963822222222223
+    },
+    "xfoil_n11": {
+     "0.5": null,
+     "0.6": null,
+     "0.7": null,
+     "0.8": null
+    },
+    "neuralfoil": {
+     "0.5": 0.015247182775268769,
+     "0.6": 0.01483530187275547,
+     "0.7": 0.014705594110292408,
+     "0.8": 0.01512482093241991
+    },
+    "xfoil_corrected": {
+     "0.5": 0.016279442211573753,
+     "0.6": 0.016321812727507504,
+     "0.7": 0.01684664149571204,
+     "0.8": 0.017194454107261368
+    }
+   },
+   "clmax": {
+    "xfoil_n9": 1.2847,
+    "xfoil_n11": null,
+    "neuralfoil": 1.3418569522033543
+   },
+   "xtr_top_at_cl0.7": {
+    "xfoil_n9": 0.7516181818181819,
+    "xfoil_n11": null
+   },
+   "nf_conf_median": 0.9824567429597244
+  }
+ },
+ "mack_tu_pct": {
+  "9": 0.07013524609002109,
+  "11": 0.030480652303926242
+ }
+}

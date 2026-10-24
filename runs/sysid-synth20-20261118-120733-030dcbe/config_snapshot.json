@@ -1,0 +1,41 @@
+{
+ "sysid": {
+  "seeds": 20,
+  "log_rate_hz": 50,
+  "sensor_noise": {
+   "accel_ms2": 0.05,
+   "gyro_rads": 0.005,
+   "baro_m": 0.3,
+   "pitot_ms": 0.3,
+   "pitot_scale": 0.01,
+   "alpha_vane_rad": 0.0087
+  },
+  "turbulence": "dryden_milf8785c_light",
+  "speeds_ms": [
+   13.5,
+   14.5,
+   15.5,
+   17.0,
+   19.0,
+   21.0
+  ],
+  "start_alt_m": 900,
+  "sim_rate_hz": 200,
+  "controller": {
+   "k_theta": 0.3,
+   "k_q": 0.05
+  }
+ },
+ "truth": {
+  "CD0": 0.0481780810559003,
+  "k": 0.0532166029881813,
+  "CL0": 0.1916308989197769,
+  "CLa": 4.753828,
+  "CLq": 6.769877,
+  "CLde": 0.5881984724813032,
+  "Cm0": 0.017040976088028903,
+  "Cma": -0.546234,
+  "Cmq": -8.920773,
+  "Cmde": -1.2998693498132985
+ }
+}

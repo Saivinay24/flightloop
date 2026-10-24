@@ -1,0 +1,801 @@
+{
+ "comp.diamond.m2a2.cd_err_pct": {
+  "value": -1.85405,
+  "unit": "%",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-diamond-M2-a2-L2-20261118-112921-030dcbe",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "comp.diamond.m2a2.cl_err_pct": {
+  "value": -0.844338,
+  "unit": "%",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-diamond-M2-a2-L2-20261118-112921-030dcbe",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "comp.wedge.m2.beta_err_deg": {
+  "value": 0.00400242,
+  "unit": "deg",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-wedge-M2-a0-L2-20261118-181717-0402430",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "comp.wedge.m2.p2p1_err_pct": {
+  "value": -0.00200537,
+  "unit": "%",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-wedge-M2-a0-L2-20261118-181717-0402430",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "comp.wedge.m3.beta_err_deg": {
+  "value": 0.0123111,
+  "unit": "deg",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-wedge-M3-a0-L2-20261118-112914-030dcbe",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "comp.wedge.m3.p2p1_err_pct": {
+  "value": -0.00542691,
+  "unit": "%",
+  "script": "scripts/post_compressible.py",
+  "run_id": "comp-wedge-M3-a0-L2-20261118-112914-030dcbe",
+  "git_sha": "0d24558",
+  "data_source": "textbook verification (Euler CFD vs own theory.py)"
+ },
+ "compute.cloud_gpu_h": {
+  "value": 0,
+  "unit": "h",
+  "script": "scripts/compute_used.py",
+  "run_id": "n/a",
+  "git_sha": "77ff53c",
+  "data_source": "measured from run folders",
+  "note": "no cloud VM used"
+ },
+ "compute.su2_core_h": {
+  "value": 35.831,
+  "unit": "core-h",
+  "script": "scripts/compute_used.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "measured from run folders"
+ },
+ "compute.su2_runs": {
+  "value": 42,
+  "unit": "-",
+  "script": "scripts/compute_used.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "measured from run folders",
+  "note": "including superseded runs"
+ },
+ "compute.total_core_h": {
+  "value": 43.8194,
+  "unit": "core-h",
+  "script": "scripts/compute_used.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "measured from run folders",
+  "note": "SU2 + XFOIL batch + blind loop; excludes sys-ID Monte Carlo and post-processing (minutes)"
+ },
+ "e387.gci.cd_fine_pct": {
+  "value": 0.998889,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD numerical uncertainty",
+  "note": "largest of SA, SST-LM with a GCI"
+ },
+ "e387.gci.sa.cd_fine_pct": {
+  "value": 0.998889,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD numerical uncertainty"
+ },
+ "e387.gci.sa.cl_fine_pct": {
+  "value": 0.315563,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD numerical uncertainty"
+ },
+ "e387.gci.sst_lm.cd_fine_pct": {
+  "value": "n/a (oscillatory)",
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD numerical uncertainty"
+ },
+ "e387.gci.sst_lm.cl_fine_pct": {
+  "value": 1.50641,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD numerical uncertainty"
+ },
+ "e387.lm.re200k.a0.cd_err_pct": {
+  "value": 3.33741,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a0.cl_err_pct": {
+  "value": 5.31802,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a4.cd_err_pct": {
+  "value": 4.42133,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a4.cl_err_pct": {
+  "value": 0.340577,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a4.cp_rms_upper": {
+  "value": 0.0780493,
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a4.state": {
+  "value": "unsteady",
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD"
+ },
+ "e387.lm.re200k.a4.xr_err_c": {
+  "value": 0.0210819,
+  "unit": "c",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "SST-LM alpha 4 vs TM-4062 oil flow; state unsteady"
+ },
+ "e387.lm.re200k.a4.xs_err_c": {
+  "value": 0.0127063,
+  "unit": "c",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SST_LM-medium-20261118-111324-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "SST-LM alpha 4 vs TM-4062 oil flow; state unsteady"
+ },
+ "e387.lm.re200k.a8.cd_err_pct": {
+  "value": 31.9898,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a8-SST_LM-medium-20261118-111328-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.a8.cl_err_pct": {
+  "value": -1.82387,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a8-SST_LM-medium-20261118-111328-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state unsteady"
+ },
+ "e387.lm.re200k.xr_err_c": {
+  "value": "n/a (no reattachment found in at least one SST-LM run)",
+  "unit": "c",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD"
+ },
+ "e387.n_runs_reported": {
+  "value": 11,
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD"
+ },
+ "e387.n_runs_unsteady": {
+  "value": 4,
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD"
+ },
+ "e387.re_validated": {
+  "value": "200k",
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD"
+ },
+ "e387.sa.re200k.a0.cd_err_pct": {
+  "value": 30.7959,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a0-SA-medium-20261118-111327-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.sa.re200k.a0.cl_err_pct": {
+  "value": 2.98872,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a0-SA-medium-20261118-111327-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.sa.re200k.a4.cd_err_pct": {
+  "value": 25.1074,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SA-medium-20261118-111325-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.sa.re200k.a4.cl_err_pct": {
+  "value": -0.127077,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a4-SA-medium-20261118-111325-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.sa.re200k.a8.cd_err_pct": {
+  "value": 37.7922,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.sa.re200k.a8.cl_err_pct": {
+  "value": -0.972249,
+  "unit": "%",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "cfd-e387-re200k-a8-SA-medium-20261118-111330-89ecad3",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (NASA TM-4062) vs CFD",
+  "note": "state converged"
+ },
+ "e387.yplus_max": {
+  "value": 0.652594,
+  "unit": "-",
+  "script": "scripts/analyze_e387.py",
+  "run_id": "multiple",
+  "git_sha": "77ff53c",
+  "data_source": "CFD",
+  "note": "over 11 reported E387 runs"
+ },
+ "logs.ardupilot_ok": {
+  "value": 3,
+  "unit": "-",
+  "script": "scripts/parse_logs.py",
+  "run_id": "n/a",
+  "git_sha": "ba178d0",
+  "data_source": "public ArduPlane logs (ALFA)"
+ },
+ "logs.px4_ok": {
+  "value": 1,
+  "unit": "-",
+  "script": "scripts/parse_logs.py",
+  "run_id": "n/a",
+  "git_sha": "ba178d0",
+  "data_source": "public PX4 Flight Review logs"
+ },
+ "loop.blind.error_reduction_pct": {
+  "value": 3.94943,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "smaller of the sink-rate and trim-elevator median reductions"
+ },
+ "loop.blind.max_cd0_delta_err_pp": {
+  "value": 2.8945,
+  "unit": "pp",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)"
+ },
+ "loop.blind.max_sm_delta_err_mac_pct": {
+  "value": 0.172042,
+  "unit": "% MAC",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)"
+ },
+ "loop.blind.n_seeds": {
+  "value": 6,
+  "unit": "-",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)"
+ },
+ "loop.blind.secondary.air_all_reduction_pct": {
+  "value": 55.4972,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "post hoc secondary metric, median over seeds (HONEST_LOG 14)"
+ },
+ "loop.blind.secondary.air_env_reduction_pct": {
+  "value": 80.2823,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "post hoc secondary metric, median over seeds (HONEST_LOG 14)"
+ },
+ "loop.blind.secondary.trim_env_reduction_pct": {
+  "value": 96.9534,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "post hoc secondary metric, median over seeds (HONEST_LOG 14)"
+ },
+ "loop.blind.sink_err_reduction_pct": {
+  "value": 3.94943,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "median over seeds"
+ },
+ "loop.blind.trim_err_reduction_pct": {
+  "value": 51.0713,
+  "unit": "%",
+  "script": "scripts/run_loop_blind.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "b182e23",
+  "data_source": "synthetic (blind injected discrepancies)",
+  "note": "median over seeds"
+ },
+ "loop.correlation.n_cards": {
+  "value": 25,
+  "unit": "-",
+  "script": "scripts/correlation_report.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "0d24558",
+  "data_source": "synthetic"
+ },
+ "loop.correlation.n_inside_band": {
+  "value": 5,
+  "unit": "-",
+  "script": "scripts/correlation_report.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "0d24558",
+  "data_source": "synthetic"
+ },
+ "loop.correlation.n_measured": {
+  "value": 12,
+  "unit": "-",
+  "script": "scripts/correlation_report.py",
+  "run_id": "loop-blind6-20261118-182042-0402430",
+  "git_sha": "0d24558",
+  "data_source": "synthetic"
+ },
+ "mf.cd_mape_corrected_pct": {
+  "value": 9.53593,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "leave-one-family-out, pooled"
+ },
+ "mf.cd_mape_neuralfoil_pct": {
+  "value": 10.7088,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil"
+ },
+ "mf.cd_mape_reduction_pct": {
+  "value": 24.2673,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "1 - corrected/raw XFOIL N9"
+ },
+ "mf.cd_mape_xfoil_pct": {
+  "value": 12.5916,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil"
+ },
+ "mf.e387.re100k.cd_err_corrected_pct": {
+  "value": -6.83804,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "E387 Re 101k"
+ },
+ "mf.e387.re100k.cd_err_xfoil_pct": {
+  "value": -10.3548,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "E387 Re 101k"
+ },
+ "mf.n_families": {
+  "value": 18,
+  "unit": "-",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil"
+ },
+ "mf.n_points": {
+  "value": 1356,
+  "unit": "-",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil"
+ },
+ "mf.test.cd_mape_corrected_pct": {
+  "value": 9.75596,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "E387 + SD7037, untouched"
+ },
+ "mf.test.cd_mape_xfoil_pct": {
+  "value": 11.0923,
+  "unit": "%",
+  "script": "scripts/run_mf.py",
+  "run_id": "mf-lofo-20261118-121208-030dcbe",
+  "git_sha": "ba178d0",
+  "data_source": "public experimental (UIUC LSAT vol. 1 and 3) vs XFOIL/NeuralFoil",
+  "note": "E387 + SD7037, untouched"
+ },
+ "strato.sd7037.re100k.corrected_cd_err_pct": {
+  "value": -1.06717,
+  "unit": "%",
+  "script": "scripts/run_strato.py",
+  "run_id": "n/a",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (UIUC) vs corrected XFOIL"
+ },
+ "strato.sd7037.re100k.xfoil_n9_cd_err_pct": {
+  "value": -8.76238,
+  "unit": "%",
+  "script": "scripts/run_strato.py",
+  "run_id": "n/a",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (UIUC) vs XFOIL"
+ },
+ "strato.sd7037.re60k.corrected_cd_err_pct": {
+  "value": -4.23428,
+  "unit": "%",
+  "script": "scripts/run_strato.py",
+  "run_id": "n/a",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (UIUC) vs corrected XFOIL"
+ },
+ "strato.sd7037.re60k.xfoil_n9_cd_err_pct": {
+  "value": 5.88897,
+  "unit": "%",
+  "script": "scripts/run_strato.py",
+  "run_id": "n/a",
+  "git_sha": "77ff53c",
+  "data_source": "public experimental (UIUC) vs XFOIL"
+ },
+ "sysid.alfa.cd0": {
+  "value": 0.0211624,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "airframe + stopped prop, energy method"
+ },
+ "sysid.alfa.cd0_ci_hi": {
+  "value": 0.0477636,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "95% CI, bootstrap over flights"
+ },
+ "sysid.alfa.cd0_ci_lo": {
+  "value": -0.0222042,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "95% CI, bootstrap over flights"
+ },
+ "sysid.alfa.e_avl": {
+  "value": 0.9795,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "AVL (approximate geometry)"
+ },
+ "sysid.alfa.e_flight": {
+  "value": 0.352795,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "1/(pi AR k), includes all lift-dependent drag"
+ },
+ "sysid.alfa.k": {
+  "value": 0.159259,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)"
+ },
+ "sysid.alfa.k_avl": {
+  "value": 0.0573616,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "AVL (approximate geometry)"
+ },
+ "sysid.alfa.k_ci_hi": {
+  "value": 0.213155,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "95% CI, bootstrap over flights"
+ },
+ "sysid.alfa.k_ci_lo": {
+  "value": 0.111605,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "95% CI, bootstrap over flights"
+ },
+ "sysid.alfa.n_flights_used": {
+  "value": 8,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)",
+  "note": "of 23 engine-failure sequences"
+ },
+ "sysid.alfa.n_segments_used": {
+  "value": 21,
+  "unit": "-",
+  "script": "scripts/run_alfa.py",
+  "run_id": "alfa-glide-20261118-213212-0d24558",
+  "git_sha": "0d24558",
+  "data_source": "public experimental (CMU ALFA)"
+ },
+ "sysid.synth.alt18km_cd0_median_err_pct": {
+  "value": 0.495788,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cd0_energy_calm_median_err_pct": {
+  "value": 2.97604,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cd0_energy_median_err_pct": {
+  "value": 16.3833,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cd0_median_err_pct": {
+  "value": 1.45027,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cla_median_err_pct": {
+  "value": 1.96466,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cma_median_err_pct": {
+  "value": 2.00036,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cmde_median_err_pct": {
+  "value": 2.06821,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.cmq_median_err_pct": {
+  "value": 3.41548,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.coverage_cd0_pct": {
+  "value": 25.0,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.coverage_cla_pct": {
+  "value": 60.0,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.coverage_cma_pct": {
+  "value": 60.0,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.k_median_err_pct": {
+  "value": 1.87698,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.n_seeds": {
+  "value": 20,
+  "unit": "-",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.novane_bias_cla_pct": {
+  "value": -98.1021,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.novane_bias_cma_pct": {
+  "value": 96.7187,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.oe_cla_median_err_pct": {
+  "value": 3.16498,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.oe_cma_median_err_pct": {
+  "value": 4.86534,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.oe_cmde_median_err_pct": {
+  "value": 9.15094,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.oe_cmq_median_err_pct": {
+  "value": 17.0767,
+  "unit": "%",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ },
+ "sysid.synth.parquet_roundtrip_exact": {
+  "value": true,
+  "unit": "-",
+  "script": "scripts/run_sysid_synth.py",
+  "run_id": "sysid-synth20-20261118-120733-030dcbe",
+  "git_sha": "184e9a1",
+  "data_source": "synthetic (StratoGlide design model, FlightLoop sim)"
+ }
+}

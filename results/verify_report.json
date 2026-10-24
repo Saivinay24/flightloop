@@ -1,0 +1,149 @@
+{
+ "rows": [
+  {
+   "id": "V01",
+   "class": "I",
+   "pass": true,
+   "msg": "rho11 0.3648 (+0.25%), rho20 0.0889 (+0.01%), nu18 1.169e-04 (+0.96%)",
+   "tag": "PASS"
+  },
+  {
+   "id": "V02",
+   "class": "I",
+   "pass": true,
+   "msg": "data files without SOURCES row: 0; TM-4062 unresolved diffs 0; canonical logs 210 (simulator outputs must say synthetic), mislabelled 0",
+   "tag": "PASS"
+  },
+  {
+   "id": "V03",
+   "class": "I",
+   "pass": true,
+   "msg": "max y+ 0.653 over 14 reported runs; per-direction ratios 1.419, 1.417, 1.419, 1.417; runs without mesh SHA 0",
+   "tag": "PASS"
+  },
+  {
+   "id": "V04",
+   "class": "I",
+   "pass": true,
+   "msg": "6 runs in error statistics, non-converged among them 0; unsteady runs 5 (all in Trust Map: True)",
+   "tag": "PASS"
+  },
+  {
+   "id": "V05",
+   "class": "R",
+   "pass": false,
+   "msg": "SA: GCI Cl 0.32% (p 1.97), Cd 1.00% (p 1.97); SST_LM: Cl monotone (unsteady inputs), Cd oscillatory (bars Cl < 2%, Cd < 5%, p in [0.5, 3])",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V06",
+   "class": "R",
+   "pass": false,
+   "msg": "SST-LM Re 200k a4 (state unsteady, in error stats False): Cl +0.3%, Cd +4.4%, RMS dCp upper 0.078 (bars 5%, 20%, 0.05)",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V07",
+   "class": "R",
+   "pass": true,
+   "msg": "SA Cd +25.1% vs TM-4062 (bar > +25%)",
+   "tag": "PASS"
+  },
+  {
+   "id": "V08",
+   "class": "R",
+   "pass": false,
+   "msg": "a0: no bubble/reattachment in CFD; a4 (NOT in error stats): x_s +0.013c, x_r +0.021c (bars 0.05c, 0.08c)",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V09",
+   "class": "I",
+   "pass": true,
+   "msg": "Trust Map covers 12/12 E387 runs; LIMITS.md quantified failure regions 8",
+   "tag": "PASS"
+  },
+  {
+   "id": "V10",
+   "class": "I",
+   "pass": true,
+   "msg": "DISAGREEMENT.md rows 21, empty cells 0, Re covered ['100', '60', '80']",
+   "tag": "PASS"
+  },
+  {
+   "id": "V11",
+   "class": "R",
+   "pass": false,
+   "msg": "Cd MAPE corrected 9.5% vs raw XFOIL 12.6% (ratio 0.76, bar <= 0.75) vs NeuralFoil 10.7%; leakage assert [I] PASS",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V12",
+   "class": "R",
+   "pass": true,
+   "msg": "M2: beta 39.32 (+0.01 deg), p2/p1 1.7065 (-0.03%); M3: beta 27.40 (+0.02 deg), p2/p1 2.0544 (-0.03%) (bars 0.5 deg, 1%)",
+   "tag": "PASS"
+  },
+  {
+   "id": "V13",
+   "class": "R",
+   "pass": true,
+   "msg": "M2 a2 fine: Cl 0.0803 (-0.85%), Cd 0.00847 (-1.87%), monotone Cl True, Cd True",
+   "tag": "PASS"
+  },
+  {
+   "id": "V14",
+   "class": "I",
+   "pass": true,
+   "msg": "synthetic Parquet round-trip exact True; PX4 ULogs to full schema 1; ArduPilot .bin to full schema 3",
+   "tag": "PASS"
+  },
+  {
+   "id": "V15",
+   "class": "R",
+   "pass": true,
+   "msg": "CD0 1.5% (<5), k 1.9% (<10), CLa 2.0% (<5), Cma 2.0% (<10), Cmde 2.1% (<10), Cmq 3.4% (<25) median |err|, 20 seeds",
+   "tag": "PASS"
+  },
+  {
+   "id": "V16",
+   "class": "R",
+   "pass": false,
+   "msg": "CD0 25%, CLa 60%, Cma 60% of seeds inside 95% CI (bar 80-100%)",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V17",
+   "class": "I",
+   "pass": true,
+   "msg": "ALFA flights used 8, segments 21; estimates without CI/residual 0; AVL-vs-flight table present",
+   "tag": "PASS"
+  },
+  {
+   "id": "V18",
+   "class": "R",
+   "pass": false,
+   "msg": "6 blind seeds: CD0 delta err max 2.89 pp, SM delta err max 0.17% MAC, sink err cut 4%, trim err cut 51%; sealed truth opened by engine [I]: False",
+   "tag": "FAIL (logged)"
+  },
+  {
+   "id": "V19",
+   "class": "I",
+   "pass": true,
+   "msg": "missing outward files []; files with U+2014 []; numbers in resume/report not equal to numbers.json: 0",
+   "tag": "PASS"
+  },
+  {
+   "id": "V20",
+   "class": "I",
+   "pass": true,
+   "msg": "secrets 0; attribution in git log False; weapon-term hits []; PREREG committed before first results commit True",
+   "tag": "PASS"
+  }
+ ],
+ "integrity": 10,
+ "results": 4,
+ "n_integrity": 10,
+ "n_results": 10,
+ "unlogged_r_fails": []
+}

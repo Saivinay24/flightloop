@@ -1,0 +1,373 @@
+{
+ "run_id": "alfa-glide-20261118-213212-0d24558",
+ "aircraft": {
+  "S": 0.692,
+  "b": 1.98,
+  "mass": 5.4
+ },
+ "n_flights_available": 23,
+ "n_flights_used": 8,
+ "n_segments_used": 21,
+ "flights": [
+  {
+   "sequence": "carbonZ_2018-07-18-15-53-31_1_engine_failure",
+   "t_engine_failure_s": 116.16599583625793,
+   "n_windows": 3,
+   "imu_rate_hz": 2.4763140664399925,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-18-15-53-31_2_engine_failure",
+   "t_engine_failure_s": 73.25677275657654,
+   "n_windows": 2,
+   "imu_rate_hz": 2.575415711598908,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-18-16-22-01_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 116.30994129180908,
+   "n_windows": 0,
+   "imu_rate_hz": 2.4692217393505604,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-07-18-16-37-39_2_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 113.75189471244812,
+   "n_windows": 0,
+   "imu_rate_hz": 2.4245288581262074,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-16-29-45_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 122.83887672424316,
+   "n_windows": 3,
+   "imu_rate_hz": 2.5074392734333526,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-16-39-00_1_engine_failure",
+   "t_engine_failure_s": 116.62967038154602,
+   "n_windows": 3,
+   "imu_rate_hz": 2.5305825951494048,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-16-39-00_2_engine_failure",
+   "t_engine_failure_s": 91.29391527175903,
+   "n_windows": 4,
+   "imu_rate_hz": 2.557246714352955,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-17-10-45_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 116.94189524650574,
+   "n_windows": 3,
+   "imu_rate_hz": 2.525653030292994,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-17-20-01_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 87.44971776008606,
+   "n_windows": 2,
+   "imu_rate_hz": 2.4821392430083193,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-17-36-35_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 133.1671426296234,
+   "n_windows": 0,
+   "imu_rate_hz": 2.454967862093952,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-07-30-17-46-31_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 90.05169153213501,
+   "n_windows": 1,
+   "imu_rate_hz": 2.509915061630285,
+   "used": true
+  },
+  {
+   "sequence": "carbonZ_2018-09-11-11-56-30_engine_failure",
+   "t_engine_failure_s": 103.40934824943542,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5177133568398924,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-09-11-14-22-07_1_engine_failure",
+   "t_engine_failure_s": 104.49622368812561,
+   "n_windows": 0,
+   "imu_rate_hz": 2.425411427000205,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-09-11-14-22-07_2_engine_failure",
+   "t_engine_failure_s": 49.73742604255676,
+   "n_windows": 0,
+   "imu_rate_hz": 2.4896666142335215,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-05-15-52-12_3_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 48.95298528671265,
+   "n_windows": 0,
+   "imu_rate_hz": 2.629098893714753,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-05-15-55-10_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 99.81110262870789,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5207638430628725,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-05-16-04-46_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 75.81876039505005,
+   "n_windows": 0,
+   "imu_rate_hz": 2.515195018427835,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-03-57_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 103.912593126297,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5684229348320633,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-04-00_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 111.0641565322876,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5722655177964997,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-04-08_1_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 100.18301033973694,
+   "n_windows": 0,
+   "imu_rate_hz": 2.51552839360308,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-04-08_2_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 98.0204689502716,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5041532855823405,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-04-35_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 100.99955892562866,
+   "n_windows": 0,
+   "imu_rate_hz": 2.513932463789919,
+   "used": false
+  },
+  {
+   "sequence": "carbonZ_2018-10-18-11-06-06_engine_failure_with_emr_traj",
+   "t_engine_failure_s": 102.29834604263306,
+   "n_windows": 0,
+   "imu_rate_hz": 2.5888176614437324,
+   "used": false
+  }
+ ],
+ "method": "energy method on post-engine-failure glide windows (3 s)",
+ "estimates": [
+  {
+   "name": "CD0 (airframe + stopped prop)",
+   "value": 0.02116241257671507,
+   "ci95": [
+    -0.022204212446010663,
+    0.0477636123869446
+   ],
+   "resid_rms": 0.039294965474041696,
+   "systematic_range": [
+    0.01798805069020781,
+    0.024336774463222327
+   ]
+  },
+  {
+   "name": "k",
+   "value": 0.159258956931659,
+   "ci95": [
+    0.11160506851336464,
+    0.2131545078113369
+   ],
+   "resid_rms": 0.039294965474041696,
+   "systematic_range": [
+    0.13848604950579047,
+    0.18736347874312825
+   ]
+  },
+  {
+   "name": "Oswald e (from k, AR 5.67)",
+   "value": 0.3527946367276989,
+   "ci95": [
+    0.263591450320473,
+    0.5034332813442849
+   ],
+   "resid_rms": 0.039294965474041696
+  }
+ ],
+ "avl_vs_flight": [
+  {
+   "quantity": "k (induced drag factor)",
+   "avl": 0.05736161904679621,
+   "flight": 0.159258956931659,
+   "flight_ci95": [
+    0.11160506851336464,
+    0.2131545078113369
+   ]
+  },
+  {
+   "quantity": "span efficiency e",
+   "avl": 0.9795,
+   "flight": 0.3527946367276989
+  },
+  {
+   "quantity": "CD0",
+   "avl": "n/a (AVL is inviscid; CDvis 0.025 is an input, not a result)",
+   "flight": 0.02116241257671507,
+   "flight_ci95": [
+    -0.022204212446010663,
+    0.0477636123869446
+   ]
+  },
+  {
+   "quantity": "CLa (per rad)",
+   "avl": 4.555587429085175,
+   "flight": "n/a (no alpha measurement on ALFA)"
+  }
+ ],
+ "approximations": [
+  "mass 5.4 kg +/-15% and S 0.692 m^2 +/-5% are retailer/review figures, not ALFA measurements",
+  "TAS from EAS with rho from static pressure and ISA temperature",
+  "vertical air motion assumed zero (energy method)",
+  "stopped or windmilling propeller drag is included in CD0",
+  "AVL geometry approximate (data/alfa/AIRCRAFT.md)",
+  "mavros imu/data in the processed CSVs is logged at a median 2.5 Hz, so CL (from az) is a mean over few IMU samples per 3 s window"
+ ],
+ "points": {
+  "carbonZ_2018-07-18-15-53-31_1_engine_failure": [
+   [
+    0.814292722737335,
+    0.0026358575552826087,
+    12.892630358503299
+   ],
+   [
+    0.9389589340536166,
+    0.17700583017358396,
+    11.441816921010071
+   ],
+   [
+    1.1271529041743944,
+    0.25003133123412885,
+    10.749609114902702
+   ]
+  ],
+  "carbonZ_2018-07-18-15-53-31_2_engine_failure": [
+   [
+    0.7617314365674932,
+    0.15348422137093126,
+    12.651709297859773
+   ],
+   [
+    0.9933910185916038,
+    0.19318880405665337,
+    11.247597747054662
+   ]
+  ],
+  "carbonZ_2018-07-30-16-29-45_engine_failure_with_emr_traj": [
+   [
+    0.5130178140717727,
+    0.0671595018199093,
+    15.43379662166872
+   ],
+   [
+    0.4692218783962384,
+    0.07357820346519996,
+    16.39377396991217
+   ],
+   [
+    0.45586724888461644,
+    0.100459339147231,
+    16.374466293973196
+   ]
+  ],
+  "carbonZ_2018-07-30-16-39-00_1_engine_failure": [
+   [
+    0.6166929765426444,
+    0.05240443047719714,
+    14.832587349831119
+   ],
+   [
+    0.640775336773624,
+    0.07201243710948499,
+    13.909072925835586
+   ],
+   [
+    0.7268639598583085,
+    0.14383570078032062,
+    13.124482042819393
+   ]
+  ],
+  "carbonZ_2018-07-30-16-39-00_2_engine_failure": [
+   [
+    0.5942278980553352,
+    0.07049309084499791,
+    14.779718751318603
+   ],
+   [
+    0.679531744073859,
+    0.06511433886291536,
+    13.78644238434173
+   ],
+   [
+    0.7340186265707187,
+    0.10051224213273141,
+    12.97572004748508
+   ],
+   [
+    0.7438787715382462,
+    0.13129640175127855,
+    13.100466064816134
+   ]
+  ],
+  "carbonZ_2018-07-30-17-10-45_engine_failure_with_emr_traj": [
+   [
+    0.6815226919071969,
+    0.03423398041743586,
+    14.062391086881522
+   ],
+   [
+    0.7449582784840431,
+    0.09962923712625454,
+    13.113469047794991
+   ],
+   [
+    0.9008313792477536,
+    0.12685691458307888,
+    12.169919684078357
+   ]
+  ],
+  "carbonZ_2018-07-30-17-20-01_engine_failure_with_emr_traj": [
+   [
+    0.734052716575848,
+    0.13577628440309333,
+    13.884122434173653
+   ],
+   [
+    0.685959585448264,
+    0.1472228819137555,
+    13.454912146611875
+   ]
+  ],
+  "carbonZ_2018-07-30-17-46-31_engine_failure_with_emr_traj": [
+   [
+    0.5722088676807437,
+    0.07376513455644516,
+    15.412399351820174
+   ]
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "airfoil": "sd7037",
+ "re": 100000,
+ "alpha": 4,
+ "model": "SST_LM",
+ "level": "medium",
+ "tu_pct": 0.06,
+ "iters": 30000,
+ "tag_tu": false,
+ "run_id": "cfd-sd7037-re100k-a4-SST_LM-medium-20261118-181548-0402430",
+ "mesh": "cfd/meshes/sd7037/sd7037_medium.su2",
+ "mesh_sha256_16": "2cf95b8e81e88a37",
+ "git_sha": "0402430",
+ "su2_version": "v8.6.0"
+}

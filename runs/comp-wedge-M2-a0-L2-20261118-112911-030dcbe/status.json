@@ -1,0 +1,5 @@
+{
+ "status": "superseded",
+ "by": "comp-wedge-M2-a0-L2-20261118-181717-0402430",
+ "reason": "ran under the first stopping rule (rms density < -11, 100-element Cauchy 1e-10) and hit the 6000-iteration cap in a residual limit cycle; case.cfg in this folder was later overwritten by the Cauchy-rule template (log.txt is the record of what ran). HONEST_LOG 13."
+}

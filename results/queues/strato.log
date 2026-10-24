@@ -1,0 +1,9 @@
+18:15:56 launched sd7037|100000|4|SA|medium|0.06 cfd-sd7037-re100k-a4-SA-medium-20261118-181547-0402430 pid 41444 remaining 12000
+18:15:56 launched sd7037|100000|4|SST_LM|medium|0.06 cfd-sd7037-re100k-a4-SST_LM-medium-20261118-181548-0402430 pid 41448 remaining 30000
+18:24:56 finished chunk sd7037|100000|4|SA|medium|0.06 converged 3182 0.739718343 0.01910048434
+18:24:56 launched sd7037|100000|2|SA|medium|0.06 cfd-sd7037-re100k-a2-SA-medium-20261118-181549-0402430 pid 55751 remaining 12000
+18:33:56 finished chunk sd7037|100000|2|SA|medium|0.06 incomplete 3439 0.534486499 0.01710578206
+18:33:56 launched sd7037|100000|2|SA|medium|0.06 cfd-sd7037-re100k-a2-SA-medium-20261118-181549-0402430 pid 58746 remaining 8561
+18:39:27 finished chunk sd7037|100000|2|SA|medium|0.06 converged 5440 0.5344660799 0.01710394638
+18:39:27 launched sd7037|100000|2|SST_LM|medium|0.06 cfd-sd7037-re100k-a2-SST_LM-medium-20261118-181550-0402430 pid 59031 remaining 30000
+21:34:47 queue manager stopped by hand: SD7037 Re 60k (4 runs) deferred to GAPS.md; the two running SST-LM Re 100k jobs are finished by scripts/queue_finish.py

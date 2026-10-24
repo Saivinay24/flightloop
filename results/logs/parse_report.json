@@ -1,0 +1,62 @@
+{
+ "files": [
+  {
+   "file": "data/px4/417157ed-a540-4e7d-9c85-a20fa5023e2b.ulg",
+   "format": "ulog",
+   "rows": 45694,
+   "issues": [
+    "all-NaN tas"
+   ],
+   "schema_ok": false,
+   "monotone_t": true,
+   "tas_mean": null
+  },
+  {
+   "file": "data/px4/4af54f87-a19b-4254-80b6-31e64617ff10.ulg",
+   "format": "ulog",
+   "rows": 17247,
+   "issues": [
+    "all-NaN tas"
+   ],
+   "schema_ok": false,
+   "monotone_t": true,
+   "tas_mean": null
+  },
+  {
+   "file": "data/px4/61bd5632-ee50-44af-a3c9-7ae2ce28865b.ulg",
+   "format": "ulog",
+   "rows": 29854,
+   "issues": [],
+   "schema_ok": true,
+   "monotone_t": true,
+   "tas_mean": 13.219318563699956
+  },
+  {
+   "file": "data/alfa/dataflash/2018-07-18/2018-07-18 12-38-10.bin",
+   "format": "bin",
+   "rows": 129911,
+   "issues": [],
+   "schema_ok": true,
+   "monotone_t": true,
+   "tas_mean": 0.0
+  },
+  {
+   "file": "data/alfa/dataflash/2018-07-18/2018-07-18 13-06-16.bin",
+   "format": "bin",
+   "rows": 33755,
+   "issues": [],
+   "schema_ok": true,
+   "monotone_t": true,
+   "tas_mean": 14.289716440059712
+  },
+  {
+   "file": "data/alfa/dataflash/2018-07-18/2018-07-18 16-08-38.bin",
+   "format": "bin",
+   "rows": 43125,
+   "issues": [],
+   "schema_ok": true,
+   "monotone_t": true,
+   "tas_mean": 11.777272644450157
+  }
+ ]
+}

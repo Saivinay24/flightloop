@@ -1,0 +1,14 @@
+{
+ "airfoil": "e387",
+ "level": "medium",
+ "alpha": 4,
+ "re": 200000,
+ "model": "SST_LM",
+ "tu_pct": 0.06,
+ "iters": 20,
+ "run_id": "p0-bench-e387-lm-medium",
+ "mesh": "cfd/meshes/e387/e387_medium.su2",
+ "mesh_sha256_16": "c813ecfb9bc30aed",
+ "git_sha": "6001813",
+ "su2_version": "v8.6.0"
+}

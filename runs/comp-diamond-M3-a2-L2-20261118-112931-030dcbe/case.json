@@ -1,0 +1,9 @@
+{
+ "case": "diamond",
+ "level": 2,
+ "mach": 3.0,
+ "aoa": 2.0,
+ "run_id": "comp-diamond-M3-a2-L2-20261118-112931-030dcbe",
+ "mesh_sha256_16": "cae6d1f931422d12",
+ "git_sha": "ba178d0"
+}

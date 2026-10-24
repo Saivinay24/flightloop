@@ -1,0 +1,9 @@
+{
+ "case": "wedge",
+ "level": 1,
+ "mach": 3.0,
+ "aoa": 0.0,
+ "run_id": "comp-wedge-M3-a0-L1-20261118-112913-030dcbe",
+ "mesh_sha256_16": "1982ba32d105e830",
+ "git_sha": "ba178d0"
+}

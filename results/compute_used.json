@@ -1,0 +1,25 @@
+{
+ "groups": {
+  "cfd_incompressible": {
+   "runs": 16,
+   "wall_h_single_job": 16.06695045611109,
+   "core_h": 32.13390091222218
+  },
+  "cfd_euler": {
+   "runs": 26,
+   "wall_h_single_job": 3.6970727550321154,
+   "core_h": 3.6970727550321163
+  },
+  "xfoil_batch": {
+   "wall_h": 2.5576947839392554,
+   "core_h": 7.673084351817767,
+   "note": "Pool(3)"
+  },
+  "blind_loop": {
+   "wall_h": 0.31538512170314786,
+   "core_h": 0.31538512170314786
+  }
+ },
+ "total_core_h": 43.819443140775206,
+ "cloud_gpu_h": 0
+}

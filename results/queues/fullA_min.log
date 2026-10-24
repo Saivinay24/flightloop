@@ -1,0 +1,4 @@
+21:45:51 launched e387|200000|4|SST|medium|0.06 cfd-e387-re200k-a4-SST-medium-20261118-214548-85e1418 pid 69236 remaining 15000
+21:45:51 launched e387|200000|4|SA_BC|medium|0.06 cfd-e387-re200k-a4-SA_BC-medium-20261118-214549-85e1418 pid 69240 remaining 15000
+21:54:51 finished chunk e387|200000|4|SST|medium|0.06 converged 2489 0.7720714417 0.01676651986
+22:08:31 wrap-up: SA_BC a4 and SD7037 Re 100k a2 SST-LM stopped by hand (deferred, GAPS.md)

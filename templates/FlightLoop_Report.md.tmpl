@@ -1,0 +1,119 @@
+# FlightLoop Report
+
+Sai Vinay Bhoomireddy. Low-Re CFD validation, flight-log system identification and a closed design loop for small UAVs, with StratoGlide (tag `stratoglide-v1`, read-only) as the design input.
+
+Every number in this report is rendered from `results/numbers.json` or from a generated results file by `scripts/build_docs.py`; `scripts/check_numbers.py` (check V19) fails on any drift. Data classes are stated per section: public experimental, CFD, low-order, synthetic. No aircraft was built or flown and no wind tunnel was used for this project.
+
+## 1. Verifier status
+
+Command: `.venv/bin/python verify.py`. [I] = integrity check, [R] = result bar pre-registered in `PREREG.md` before any result was committed.
+
+{{verify}}
+
+## 2. Module A: E387 at Re 200k vs NASA TM-4062 (CFD vs public experimental)
+
+SU2 v8.6.0 incompressible RANS, SA (fully turbulent) and SST with Langtry-Menter transition (SST-LM, Tu as measured in the LTPT), own C-mesh with first-cell y+ max {{e387.yplus_max:.2f}} over {{e387.n_runs_reported}} reported runs, three systematically refined grids at alpha 4. A run counts in error statistics only when it meets the residual or Cauchy criterion; {{e387.n_runs_unsteady}} runs ended unsteady at the iteration cap and are reported with their oscillation half-amplitude.
+
+{{file:results/cfd/VALIDATION.md#Validation}}
+
+**Laminar separation bubble (SST-LM vs TM-4062 oil flow, chord fractions).**
+
+{{file:results/cfd/VALIDATION.md#Bubble}}
+
+**Grid convergence (Celik et al. 2008).**
+
+{{file:results/cfd/VALIDATION.md#GCI}}
+
+**Reading.** The fully turbulent SA model over-predicts drag at every alpha because it has no laminar run and no bubble; this is the pre-registered physics story (V07). SST-LM reproduces the alpha 4 bubble location within {{e387.lm.re200k.a4.xs_err_c:+.3f}}c (separation) and {{e387.lm.re200k.a4.xr_err_c:+.3f}}c (reattachment) and the time-mean Cd within {{e387.lm.re200k.a4.cd_err_pct:+.1f}}%, but on the coarse and medium grids it never reached a steady state, so by the pre-registered rule those runs are outside error statistics and V05, V06 and V08 fail. A URANS treatment of the bubble is deferred (GAPS.md).
+
+**Quantified failure regions (LIMITS.md).**
+
+{{file:LIMITS.md#Quantified failure regions}}
+
+## 3. Module B: SD7037 at stratospheric Reynolds numbers (CFD, low-order vs public experimental)
+
+{{file:results/strato/DISAGREEMENT.md}}
+
+## 4. Module C: multi-fidelity drag correction (low-order vs public experimental)
+
+A correction to XFOIL (Ncrit 9) drag, log(Cd_exp / Cd_xfoil) regressed on XFOIL outputs and section geometry, chosen by inner GroupKFold and scored leave-one-family-out over {{mf.n_families}} UIUC airfoil families ({{mf.n_points}} identical airfoil, Re, Cl points). E387 and SD7037 families never enter training.
+
+| Tool | Cd MAPE |
+|---|---|
+| corrected XFOIL | {{mf.cd_mape_corrected_pct:.2f}}% |
+| raw XFOIL Ncrit 9 | {{mf.cd_mape_xfoil_pct:.2f}}% |
+| NeuralFoil 0.3.3 xxlarge | {{mf.cd_mape_neuralfoil_pct:.2f}}% |
+| held-out test airfoils: corrected / raw XFOIL | {{mf.test.cd_mape_corrected_pct:.2f}}% / {{mf.test.cd_mape_xfoil_pct:.2f}}% |
+| E387 Re 100k signed Cd error: raw XFOIL / corrected | {{mf.e387.re100k.cd_err_xfoil_pct:+.1f}}% / {{mf.e387.re100k.cd_err_corrected_pct:+.1f}}% |
+
+The reduction against raw XFOIL is {{mf.cd_mape_reduction_pct:.1f}}%; the pre-registered bar asks for a ratio of at most 0.75, so V11 fails by a small margin while the corrected model beats NeuralFoil on the same points. StratoGlide's XFOIL validation failed its own 15% bar at Re 100k on E387 with Ncrit 5 (its pre-registered rule); FlightLoop runs Ncrit 9 and 11 at matched UIUC points, so the two numbers are not the same metric.
+
+## 5. Module D: supersonic wedge and diamond (CFD vs textbook theory)
+
+Verification of the Euler solver setup only. SU2 Euler (Roe, Venkatakrishnan limiter), three nested grids, oblique-shock and shock-expansion theory from `flightloop/compressible/theory.py`.
+
+{{file:results/compressible/TABLE.md#Table}}
+
+## 6. Module E: system identification
+
+**Synthetic (labelled synthetic).** {{sysid.synth.n_seeds}} seeds of the StratoGlide design model in FlightLoop's 6-DOF with MIL-F-8785C light turbulence and sensor noise; glide force method for CD0 and k, equation error for the longitudinal derivatives, output error reported alongside.
+
+| Parameter | Median abs. error, equation error / force method | Median abs. error, output error |
+|---|---|---|
+| CD0 | {{sysid.synth.cd0_median_err_pct:.2f}}% | n/a (glide method only) |
+| k | {{sysid.synth.k_median_err_pct:.2f}}% | n/a (glide method only) |
+| CLa | {{sysid.synth.cla_median_err_pct:.2f}}% | {{sysid.synth.oe_cla_median_err_pct:.2f}}% |
+| Cma | {{sysid.synth.cma_median_err_pct:.2f}}% | {{sysid.synth.oe_cma_median_err_pct:.2f}}% |
+| Cmde | {{sysid.synth.cmde_median_err_pct:.2f}}% | {{sysid.synth.oe_cmde_median_err_pct:.2f}}% |
+| Cmq | {{sysid.synth.cmq_median_err_pct:.2f}}% | {{sysid.synth.oe_cmq_median_err_pct:.2f}}% |
+
+95% CI coverage over seeds: CD0 {{sysid.synth.coverage_cd0_pct:.0f}}%, CLa {{sysid.synth.coverage_cla_pct:.0f}}%, Cma {{sysid.synth.coverage_cma_pct:.0f}}% (V16 fails; the per-flight pitot scale error is not in the regression standard errors). Findings: the energy-method CD0 is biased by vertical gusts ({{sysid.synth.cd0_energy_median_err_pct:.1f}}% with gusts, {{sysid.synth.cd0_energy_calm_median_err_pct:.1f}}% calm); alpha estimated without a vane biases CLa by {{sysid.synth.novane_bias_cla_pct:+.0f}}%; at 18 km the glide CD0 median error is {{sysid.synth.alt18km_cd0_median_err_pct:.2f}}%.
+
+**CMU ALFA (public experimental).** Energy-method glide polar on post-engine-failure windows of {{sysid.alfa.n_flights_used}} flights ({{sysid.alfa.n_segments_used}} windows), bootstrap over flights.
+
+| Quantity | Flight | 95% CI | AVL (approximate geometry) |
+|---|---|---|---|
+| CD0 (airframe + stopped prop) | {{sysid.alfa.cd0:.4f}} | {{sysid.alfa.cd0_ci_lo:.4f}} to {{sysid.alfa.cd0_ci_hi:.4f}} | n/a (inviscid) |
+| k | {{sysid.alfa.k:.3f}} | {{sysid.alfa.k_ci_lo:.3f}} to {{sysid.alfa.k_ci_hi:.3f}} | {{sysid.alfa.k_avl:.4f}} |
+| span efficiency e | {{sysid.alfa.e_flight:.3f}} | from k | {{sysid.alfa.e_avl:.4f}} |
+
+The flight k includes every lift-dependent drag term (profile drag growth, trim, prop wake), not only induced drag, and mass and wing area are retailer figures; the CD0 interval spans zero. Parsers: {{logs.px4_ok}} public PX4 ULog and {{logs.ardupilot_ok}} ArduPilot .bin files reach the full canonical schema.
+
+## 7. Module F: next-iteration engine and correlation report (synthetic)
+
+`stubs/inject.py` draws a discrepancy (CD0 growth, aft CG, elevator effectiveness), applies it to the design model and seals it; the engine sees only the flight-1 logs and the design model (its file access is audited), identifies, applies first-order design rules and predicts flight 2.
+
+| Metric over {{loop.blind.n_seeds}} blind seeds | Value |
+|---|---|
+| CD0 delta error, max | {{loop.blind.max_cd0_delta_err_pp:.2f}} pp |
+| static margin delta error, max | {{loop.blind.max_sm_delta_err_mac_pct:.2f}}% MAC |
+| next-flight sink error reduction, median | {{loop.blind.sink_err_reduction_pct:.1f}}% |
+| next-flight trim error reduction, median | {{loop.blind.trim_err_reduction_pct:.1f}}% |
+| secondary (post hoc): air-relative sink, all glides / inside envelope | {{loop.blind.secondary.air_all_reduction_pct:.1f}}% / {{loop.blind.secondary.air_env_reduction_pct:.1f}}% |
+| secondary (post hoc): trim inside envelope | {{loop.blind.secondary.trim_env_reduction_pct:.1f}}% |
+
+The recovery parts of V18 pass; the next-flight prediction part fails on the pre-registered metric (HONEST_LOG 14 and the V18 entry give the cause: inertial sink carries the air-mass vertical velocity, and the two slowest glides fly beyond the linear envelope).
+
+**Correlation against StratoGlide's test cards.** {{loop.correlation.n_cards}} cards, {{loop.correlation.n_measured}} measurable from the synthetic logs, {{loop.correlation.n_inside_band}} inside StratoGlide's band.
+
+{{file:results/loop/CORRELATION.md#Table}}
+
+## 8. Failed bars and deviations
+
+{{file:HONEST_LOG.md#Failed bars (real numbers)}}
+
+All deviations from the plan, each with its reason and timing relative to results, are numbered in `HONEST_LOG.md`.
+
+## 9. Deferred
+
+{{file:GAPS.md}}
+
+## 10. Compute and reproduction
+
+{{compute.total_core_h:.1f}} core-hours measured from the run folders ({{compute.su2_core_h:.1f}} in SU2 over {{compute.su2_runs}} runs including superseded ones), {{compute.cloud_gpu_h}} cloud hours; MacBook Air M4, 16 GB. Environment pins: `requirements.lock`, `ENV.md`.
+
+```bash
+.venv/bin/python verify.py
+.venv/bin/python scripts/build_site.py && .venv/bin/python scripts/build_docs.py
+.venv/bin/python scripts/check_numbers.py
+```

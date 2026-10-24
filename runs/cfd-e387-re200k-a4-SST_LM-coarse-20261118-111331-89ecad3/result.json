@@ -1,0 +1,60 @@
+{
+ "run_id": "cfd-e387-re200k-a4-SST_LM-coarse-20261118-111331-89ecad3",
+ "case": {
+  "airfoil": "e387",
+  "re": 200000,
+  "alpha": 4,
+  "model": "SST_LM",
+  "level": "coarse",
+  "tu_pct": 0.06,
+  "iters": 30000,
+  "tag_tu": false,
+  "run_id": "cfd-e387-re200k-a4-SST_LM-coarse-20261118-111331-89ecad3",
+  "mesh": "cfd/meshes/e387/e387_coarse.su2",
+  "mesh_sha256_16": "50d056a653e0153c",
+  "git_sha": "ba178d0",
+  "su2_version": "v8.6.0"
+ },
+ "status": {
+  "iters": 30000,
+  "rms_p_drop_orders": 4.226155541999999,
+  "cl_maxreldev_1000": 0.01823888738069888,
+  "cd_maxreldev_1000": 0.026696885134406906,
+  "state": "unsteady",
+  "cl_mean_last2000": 0.7863608591967501,
+  "cl_amp_last2000": 0.014552346549999984,
+  "cd_mean_last2000": 0.01437259113378,
+  "cd_amp_last2000": 0.0007523581649999996,
+  "cl": 0.7879285781,
+  "cd": 0.01418813611,
+  "cmz_su2": 0.07616432113
+ },
+ "yplus_max": 0.6477602124214172,
+ "lsb_upper": {
+  "x_s": 0.4117252332637651,
+  "x_r": 0.6349638586201524,
+  "bubble": true
+ },
+ "cp_integral": {
+  "cn": 0.7860873105754855,
+  "cc": -0.047005464186089654,
+  "cm_c4_noseup": -0.07684554484205525
+ },
+ "breakdown": {
+  "CL": {
+   "total": 0.787929,
+   "pressure": 0.787214,
+   "friction": 0.000714
+  },
+  "CD": {
+   "total": 0.014188,
+   "pressure": 0.007895,
+   "friction": 0.006293
+  },
+  "CMz": {
+   "total": 0.076164,
+   "pressure": 0.076628,
+   "friction": -0.000463
+  }
+ }
+}

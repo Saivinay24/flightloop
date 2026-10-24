@@ -1,0 +1,11 @@
+{
+ "source": "px4_public",
+ "format": "ulog",
+ "elevator_servo_index": 2,
+ "de_units": "per unit command (normalized servo)",
+ "sys_name": "PX4",
+ "ver_sw_release": "17695488",
+ "airframe": 2100,
+ "duration_s": 597.079999,
+ "file": "61bd5632-ee50-44af-a3c9-7ae2ce28865b.ulg"
+}

@@ -1,0 +1,15 @@
+{
+ "airfoil": "e387",
+ "re": 200000,
+ "alpha": 0,
+ "model": "SST_LM",
+ "level": "medium",
+ "tu_pct": 0.06,
+ "iters": 30000,
+ "tag_tu": false,
+ "run_id": "cfd-e387-re200k-a0-SST_LM-medium-20261118-111326-89ecad3",
+ "mesh": "cfd/meshes/e387/e387_medium.su2",
+ "mesh_sha256_16": "0098d2b8ce9ace19",
+ "git_sha": "e320cdc",
+ "su2_version": "v8.6.0"
+}

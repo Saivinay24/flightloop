@@ -1,0 +1,15 @@
+{
+ "airfoil": "e387",
+ "re": 200000,
+ "alpha": 4,
+ "model": "SA",
+ "level": "coarse",
+ "tu_pct": 0.06,
+ "iters": 12000,
+ "tag_tu": false,
+ "run_id": "cfd-e387-re200k-a4-SA-coarse-20261118-111333-89ecad3",
+ "mesh": "cfd/meshes/e387/e387_coarse.su2",
+ "mesh_sha256_16": "50d056a653e0153c",
+ "git_sha": "ba178d0",
+ "su2_version": "v8.6.0"
+}

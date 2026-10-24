@@ -1,0 +1,1 @@
+{"name": "s7012(b)", "re": 101200.0, "ncrit": 9, "cols": ["alpha", "cl", "cd", "cdp", "cm", "xtr_top", "xtr_bot"], "rows": [], "nonconverged_alpha": [], "n_requested": 37}

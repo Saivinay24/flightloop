@@ -1,0 +1,31 @@
+ ---------------------------------------------------------------
+ Vortex Lattice Output -- Total Forces
+
+ Configuration: Carbon-Z T-28 (approximate geometry for FlightLoop; see data
+     # Surfaces =   4
+     # Strips   =  72
+     # Vortices = 768
+
+  Sref = 0.69200       Cref = 0.34900       Bref =  1.9800    
+  Xref = 0.10000       Yref =  0.0000       Zref =  0.0000    
+
+ Standard axis orientation,  X fwd, Z down         
+
+ Run case:  -unnamed-                              
+
+  Alpha =   6.00000     pb/2V =  -0.00000     p'b/2V =  -0.00000
+  Beta  =   0.00000     qc/2V =   0.00000
+  Mach  =     0.000     rb/2V =  -0.00000     r'b/2V =  -0.00000
+
+  CXtot =   0.02077     Cltot =  -0.00000     Cl'tot =  -0.00000
+  CYtot =   0.00001     Cmtot =  -0.12711
+  CZtot =  -0.68830     Cntot =   0.00000     Cn'tot =   0.00000
+
+  CLtot =   0.68670
+  CDtot =   0.05129
+  CDvis =   0.02500     CDind = 0.0262909
+  CLff  =   0.68706     CDff  = 0.0265796    | Trefftz
+  CYff  =  -0.00000         e =    0.9979    | Plane  
+
+
+ ---------------------------------------------------------------

@@ -1,0 +1,1 @@
+{"name": "sa7036(b)", "re": 99800.0, "ncrit": 9, "cols": ["alpha", "cl", "cd", "cdp", "cm", "xtr_top", "xtr_bot"], "rows": [], "nonconverged_alpha": [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 0.0, -0.5, -1.0, -1.5, -2.0, -2.5, -3.0, -3.5], "n_requested": 37}

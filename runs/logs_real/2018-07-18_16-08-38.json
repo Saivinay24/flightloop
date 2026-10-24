@@ -1,0 +1,8 @@
+{
+ "source": "ardupilot_public",
+ "format": "bin",
+ "de_units": "per unit command (AETR Elev / 4500)",
+ "alpha_note": "alpha_est = ArduPlane AOA estimate, not a vane",
+ "duration_s": 862.493823,
+ "file": "2018-07-18 16-08-38.bin"
+}

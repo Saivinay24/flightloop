@@ -1,0 +1,22 @@
+{
+ "t3a": {
+  "run": "p0-smoke-t3a-20261118-105704-6001813",
+  "iters": 10000,
+  "U_inf": 69.92344665527344,
+  "onset_rex_min_cf": 111948.796875,
+  "cf_min": 0.002470155479386449,
+  "cf_at_rex_5e5": 0.004144909206591223,
+  "turb_corr_at_rex_5e5": 0.004290695608971957,
+  "lam_ratio_at_rex_5e4": 1.1378699776742247
+ },
+ "naca0012_inc": {
+  "run": "p0-smoke-naca0012_inc-20261118-105704-6001813",
+  "iters": 3742,
+  "alpha_deg": 10.0,
+  "re": 6000000.0,
+  "cl": 1.108463,
+  "cd": 0.013759,
+  "rms_p_drop_orders": 3.271224,
+  "note": "tutorial case run to its 4000-iteration cap in the smoke test"
+ }
+}
